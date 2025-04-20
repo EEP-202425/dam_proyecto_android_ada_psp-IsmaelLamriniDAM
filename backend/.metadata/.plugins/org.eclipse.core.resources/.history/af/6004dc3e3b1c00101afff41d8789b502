@@ -1,0 +1,7 @@
+package dam.psp.proyectoFinal;
+
+import org.springframework.data.repository.CrudRepository;
+
+public interface VehiculosMotorRepository extends CrudRepository<Camion, Long>{
+
+}

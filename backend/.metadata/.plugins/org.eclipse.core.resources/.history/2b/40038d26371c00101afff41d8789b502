@@ -1,0 +1,33 @@
+package dam.psp.proyectoFinal.controller;
+
+import java.util.Optional;
+
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import dam.psp.proyectoFinal.Camion;
+import dam.psp.proyectoFinal.CamionRepository;
+
+@RestController
+@RequestMapping("/camiones")
+public class CamionesController {
+	
+	private CamionRepository camionRepository;
+	
+	// DEVUELVO EL OBJETO COMPLETO DEL ID RECIBIDO.
+	@GetMapping("/{id}") 
+	private ResponseEntity<Camion> findById(@PathVariable Long id) {
+		Optional<Camion> miCamion = camionRepository.findById(id);
+		if (miCamion.isPresent()) {
+			return ResponseEntity.ok(miCamion.get());
+		} else {
+			return ResponseEntity.notFound().build();
+		}
+	}
+	
+	
+	
+}
