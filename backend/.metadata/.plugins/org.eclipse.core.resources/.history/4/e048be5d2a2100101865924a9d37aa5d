@@ -1,0 +1,90 @@
+package dam.psp.proyectoFinal.tablas;
+
+import org.springframework.data.annotation.Id;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.ManyToMany;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToOne;
+import jakarta.persistence.Table;
+
+@Entity
+@Table(name = "camiones")
+public class Truck {
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private int id;
+	
+	@ManyToOne(fetch = FetchType.LAZY)
+	private Brand brand;
+	
+	@ManyToOne(fetch = FetchType.LAZY)
+	private Model model;
+	
+	private int precio;
+	
+	@ManyToOne(fetch = FetchType.LAZY)
+	private Person owner;
+	
+	public Truck() {
+		// TODO Auto-generated constructor stub
+	}
+
+	public Truck(int id, Brand marca, Model modelo, int precio, Person dueño) {
+		this.id = id;
+		this.brand = marca;
+		this.model = modelo;
+		this.precio = precio;
+		this.owner = dueño;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public Brand getMarca() {
+		return brand;
+	}
+
+	public void setMarca(Brand marca) {
+		this.brand = marca;
+	}
+
+	public Model getModelo() {
+		return model;
+	}
+
+	public void setModelo(Model modelo) {
+		this.model = modelo;
+	}
+
+	public int getPrecio() {
+		return precio;
+	}
+
+	public void setPrecio(int precio) {
+		this.precio = precio;
+	}
+
+	public Person getDueño() {
+		return owner;
+	}
+
+	public void setDueño(Person dueño) {
+		this.owner = dueño;
+	}
+
+	@Override
+	public String toString() {
+		return "Camion [id=" + id + ", marca=" + brand + ", modelo=" + model + ", precio=" + precio + ", dueño="
+				+ owner + "]";
+	}
+}

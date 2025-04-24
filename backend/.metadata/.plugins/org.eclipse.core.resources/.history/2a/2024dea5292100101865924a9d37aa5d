@@ -1,0 +1,90 @@
+package dam.psp.proyectoFinal.tablas;
+
+import java.util.Set;
+
+import jakarta.persistence.CascadeType;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.Table;
+
+@Entity
+@Table(name = "personas")
+public class Person {
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private int id;
+	
+	private String name;
+	private String lastName;
+	private String mail;
+	private String contrasenia;
+	
+	@OneToMany(mappedBy = "dueño",
+			cascade = CascadeType.ALL)
+	private Set<Truck> camiones;
+	
+	public Person() {
+		// TODO Auto-generated constructor stub
+	}
+
+	public Person(int id, String nombre, String apellido, String correo, String contrasenia) {
+		this.id = id;
+		this.name = nombre;
+		this.lastName = apellido;
+		this.mail = correo;
+		this.contrasenia = contrasenia;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public String getNombre() {
+		return name;
+	}
+
+	public void setNombre(String nombre) {
+		this.name = nombre;
+	}
+
+	public String getApellido() {
+		return lastName;
+	}
+
+	public void setApellido(String apellido) {
+		this.lastName = apellido;
+	}
+
+	public String getCorreo() {
+		return mail;
+	}
+
+	public void setCorreo(String correo) {
+		this.mail = correo;
+	}
+
+	public String getContraseña() {
+		return contrasenia;
+	}
+
+	public void setContraseña(String contraseña) {
+		this.contrasenia = contraseña;
+	}
+
+	@Override
+	public String toString() {
+		return "Persona [id=" + id + ", nombre=" + name + ", apellido=" + lastName + ", correo=" + mail
+				+ ", contraseña=" + contrasenia + "]";
+	}
+	
+	
+	
+}

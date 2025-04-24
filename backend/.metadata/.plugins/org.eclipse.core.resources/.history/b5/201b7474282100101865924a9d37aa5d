@@ -1,0 +1,58 @@
+package dam.psp.proyectoFinal.tablas;
+
+import java.util.HashSet;
+import java.util.Set;
+
+import jakarta.persistence.CascadeType;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.Table;
+
+@Entity
+@Table(name = "marcas")
+public class Marca {
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private int id;
+	
+	private String nombre;
+	
+	@OneToMany(mappedBy = "marca",
+			cascade = CascadeType.ALL)
+	private Set<Camion> camiones = new HashSet<Camion>();
+	
+	public Marca() {
+		// TODO Auto-generated constructor stub
+	}
+
+	public Marca(int id, String nombre) {
+		this.id = id;
+		this.nombre = nombre;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public String getNombre() {
+		return nombre;
+	}
+
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+
+	@Override
+	public String toString() {
+		return "Marca [id=" + id + ", nombre=" + nombre + "]";
+	}
+	
+}
