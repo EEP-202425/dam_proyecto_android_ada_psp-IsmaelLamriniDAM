@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">ProyectoFinalAndroid</string>
+    <String name = "camiones">"Camiones:"</String>
+    <String-array name = "modelos">
+        <item></item>
+    </String-array>
 </resources>
