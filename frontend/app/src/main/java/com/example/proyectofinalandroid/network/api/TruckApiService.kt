@@ -13,7 +13,7 @@ private const val BASE_URL =
 
 private val retrofit = Retrofit.Builder()
     .addConverterFactory(Json.asConverterFactory("application/json".toMediaType())).
-    baseUrl(BASE_URL).build()
+    baseUrl(BASE_URL).build() // AQUI CONSTRUYE LA URL, ES DECIR, BASE_URL + GET(ALL).
 
 interface TruckApiService {
     @GET("all")
