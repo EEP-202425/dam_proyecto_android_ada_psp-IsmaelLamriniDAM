@@ -1,0 +1,75 @@
+package dam.psp.proyectoFinal.controller;
+
+import java.net.URI;
+import java.security.Principal;
+import java.util.Optional;
+
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.util.UriComponentsBuilder;
+
+import dam.psp.proyectoFinal.repository.PersonRepository;
+import dam.psp.proyectoFinal.repository.TruckRepository;
+import dam.psp.proyectoFinal.tablas.Person;
+import dam.psp.proyectoFinal.tablas.Truck;
+
+@RestController
+@RequestMapping("/camiones")
+public class TruckController {
+	
+	private TruckRepository truckRepository;
+	private PersonRepository personRepository;
+	
+	public TruckController(TruckRepository truckRepository, PersonRepository personRepository) {
+		this.truckRepository = truckRepository;
+		this.personRepository = personRepository;
+	}
+
+	// GUARDA EL NUEVO OBJETO CAMIÓN EN LA BBDD Y CREA SU URL.
+	@PostMapping
+	private ResponseEntity<Void> createCamion(@RequestBody Truck newTruck, UriComponentsBuilder ucb) {
+		Truck truckSave = truckRepository.save(newTruck);
+		URI newURL = ucb.path("camiones/{id}").buildAndExpand(truckSave.getId()).toUri();
+		return ResponseEntity.created(newURL).build();
+	}
+	
+	// DEVUELVE TODOS LOS CAMIONES REGISTRADOS.
+	@GetMapping
+	private ResponseEntity<Iterable<Truck>> getAll(Principal principal) {
+		Iterable<Truck> trucks = truckRepository.findAll();
+		return ResponseEntity.ok(trucks);
+	}
+	
+	// DEVUELVO EL OBJETO COMPLETO DEL ID RECIBIDO.
+	@GetMapping("/{id}") 
+	private ResponseEntity<Truck> findById(@PathVariable int id, Principal principal) {
+		Optional<Person> owner = Optional.ofNullable(personRepository.findByName(principal.getName()));
+		Person ownerFind = null;
+		//		if (owner == null) {
+//			return ResponseEntity.notFound().build();
+//		}
+		
+		if(owner.isPresent()) {
+			ownerFind = owner.get();
+		} else {
+			return ResponseEntity.notFound().build();
+		}
+		
+		
+		Optional<Truck> myTruck = Optional.ofNullable(
+				truckRepository.findByIdAndOwner(id, ownerFind));
+		if (myTruck.isPresent()) {
+			return ResponseEntity.ok(myTruck.get());
+		} else {
+			return ResponseEntity.notFound().build();
+		}
+	}
+	
+	
+	
+}
