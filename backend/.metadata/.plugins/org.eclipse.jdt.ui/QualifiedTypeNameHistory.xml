@@ -27,4 +27,5 @@
     <fullyQualifiedTypeName name="jakarta.persistence.Id"/>
     <fullyQualifiedTypeName name="org.springframework.data.repository.CrudRepository"/>
     <fullyQualifiedTypeName name="dam.psp.proyectoFinal.repository.PersonRepository"/>
+    <fullyQualifiedTypeName name="dam.psp.proyectoFinal.controller.BrandRepository"/>
 </qualifiedTypeNameHistroy>
