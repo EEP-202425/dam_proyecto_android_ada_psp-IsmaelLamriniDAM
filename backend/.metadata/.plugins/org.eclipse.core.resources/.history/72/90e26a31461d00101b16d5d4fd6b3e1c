@@ -1,7 +1,0 @@
-package dam.psp.proyectoFinal;
-
-import org.springframework.data.repository.CrudRepository;
-
-public interface CamionRepository extends CrudRepository<Camion, Integer>{
-
-}

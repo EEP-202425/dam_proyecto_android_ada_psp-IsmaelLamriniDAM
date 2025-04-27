@@ -4,7 +4,7 @@ import kotlinx.serialization.Serializable
 
 @Serializable
 data class Truck (
-    val id : Int,
+    val id : Int? = null,
     val brand : Brand,
     val model : Model,
     val preci : Double,

@@ -26,6 +26,9 @@ import kotlin.coroutines.coroutineContext
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        Retrofit
+
         enableEdgeToEdge()
         setContent {
             ProyectoFinalAndroidTheme {

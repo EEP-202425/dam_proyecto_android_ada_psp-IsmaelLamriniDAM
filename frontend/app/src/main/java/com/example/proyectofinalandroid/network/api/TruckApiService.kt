@@ -5,10 +5,13 @@ import com.jakewharton.retrofit2.converter.kotlinx.serialization.asConverterFact
 import kotlinx.serialization.json.Json
 import okhttp3.MediaType.Companion.toMediaType
 import retrofit2.Retrofit
+import retrofit2.http.Body
 import retrofit2.http.GET
+import retrofit2.http.POST
+import retrofit2.http.Path
 
 private const val BASE_URL =
-    "https://localhost:8080/camiones"
+    "https://10.0.2.2:8080/"
 
 
 private val retrofit = Retrofit.Builder()
@@ -16,8 +19,16 @@ private val retrofit = Retrofit.Builder()
     baseUrl(BASE_URL).build() // AQUI CONSTRUYE LA URL, ES DECIR, BASE_URL + GET(ALL).
 
 interface TruckApiService {
-    @GET("all")
+
+    @POST("camiones")
+    suspend fun createTruck(@Body truck: Truck) : Truck
+
+    @GET("camiones")
     suspend fun getTrucks() : List<Truck>
+
+    @GET("camiones/{id}")
+    suspend fun getTruckById(@Path("id") id: Int) : Truck
+
 }
 
 object TruckApi {
