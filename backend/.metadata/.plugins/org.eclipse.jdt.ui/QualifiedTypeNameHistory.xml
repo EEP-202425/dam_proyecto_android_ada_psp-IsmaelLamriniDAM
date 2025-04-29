@@ -28,7 +28,9 @@
     <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RestController"/>
     <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RequestMapping"/>
     <fullyQualifiedTypeName name="dam.psp.proyectoFinal.controller.PersonController"/>
-    <fullyQualifiedTypeName name="dam.psp.proyectoFinal.repository.PersonRepository"/>
     <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.PostMapping"/>
     <fullyQualifiedTypeName name="org.springframework.http.ResponseEntity"/>
+    <fullyQualifiedTypeName name="org.springframework.context.annotation.Configuration"/>
+    <fullyQualifiedTypeName name="org.springframework.security.core.userdetails.UserDetailsService"/>
+    <fullyQualifiedTypeName name="dam.psp.proyectoFinal.repository.PersonRepository"/>
 </qualifiedTypeNameHistroy>

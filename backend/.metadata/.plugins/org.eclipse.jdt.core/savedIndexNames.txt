@@ -13,8 +13,6 @@ INDEX VERSION 1.134+C:\Users\ismae\dam_proyecto_android_ada_psp-IsmaelLamriniDAM
 3716783944.index
 1105188424.index
 1982687920.index
-1940177408.index
-2762799475.index
 1340175121.index
 3310584994.index
 553842772.index
@@ -50,8 +48,6 @@ INDEX VERSION 1.134+C:\Users\ismae\dam_proyecto_android_ada_psp-IsmaelLamriniDAM
 2028783484.index
 2646069969.index
 1793868793.index
-2316017274.index
-126510517.index
 502794359.index
 2413997641.index
 2289088911.index

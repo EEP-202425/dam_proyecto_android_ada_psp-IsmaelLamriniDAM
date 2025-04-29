@@ -4,7 +4,7 @@ import kotlinx.serialization.Serializable
 
 @Serializable
 data class Person (
-    val id : Int,
+    val id : Int? = null,
     val name : String,
     val lastName : String,
     val mail : String,

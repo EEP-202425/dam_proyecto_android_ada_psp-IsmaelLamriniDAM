@@ -4,7 +4,7 @@ import kotlinx.serialization.Serializable
 
 @Serializable
 data class Model (
-    val id : Int,
+    val id : Int? = null,
     val name : String,
     val trucks : Set<Truck>
 ){

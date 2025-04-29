@@ -15,7 +15,9 @@ import okio.IOException
 sealed interface TruckUiState {
     object Loading: TruckUiState
     data class Success(val trucks : List<Truck>) : TruckUiState
-    data class Error(val message: String) : TruckUiState
+    data class Created(val truck: Truck) : TruckUiState
+    data class Details(val truck: Truck) : TruckUiState
+    data class Error(val message: String?) : TruckUiState
 }
 
 class TruckViewModel : ViewModel() {
@@ -23,16 +25,39 @@ class TruckViewModel : ViewModel() {
     var trucksUiState: TruckUiState by mutableStateOf(TruckUiState.Loading)
         private set
 
+    fun createdTruck(truck: Truck) {
+        viewModelScope.launch {
+            try {
+                val created = TruckApi.retrofitService.createTruck(truck)
+                trucksUiState = TruckUiState.Created(created)
+            } catch (e : IOException) {
+                TruckUiState.Error(e.message)
+            }
+        }
+    }
+
     fun getTrucks() {
         viewModelScope.launch {
            try {
                val list =  TruckApi.retrofitService.getTrucks()
-               TruckUiState.value = TruckUiState.Success(list)
+               trucksUiState = TruckUiState.Success(list)
            } catch (e : IOException) {
                TruckUiState.Error(e.message)
            }
         }
     }
+
+    fun getTruckById(id: Int) {
+        viewModelScope.launch {
+            try {
+                val truckById = TruckApi.retrofitService.getTruckById(id)
+                trucksUiState = TruckUiState.Details(truckById);
+            } catch (e : IOException) {
+                TruckUiState.Error(e.message)
+            }
+        }
+    }
+
 
 }
 
