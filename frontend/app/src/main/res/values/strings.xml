@@ -6,4 +6,5 @@
     </String-array>
     <string name="loading">Loading</string>
     <string name="created">CREADO CON EXITO</string>
+    <string name="login">INICO DE SESIÓN EXITOSO</string>
 </resources>

@@ -27,7 +27,6 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        Retrofit
 
         enableEdgeToEdge()
         setContent {
@@ -43,9 +42,7 @@ class MainActivity : ComponentActivity() {
                         "Probando"
                     )
                     Column {
-                        listaDesplegable(
-                            modifier = Modifier
-                        )
+
                     }
                 }
             }
@@ -62,15 +59,7 @@ fun pintarTexto(modifier: Modifier, texto : String) {
     modifier.fillMaxSize()
 }
 
-@Composable
-fun listaDesplegable(modifier: Modifier) {
-    SimpleCursorAdapter(
-        context = Context,
 
-    )
-
-
-}
 
 @Preview(showBackground = true)
 @Composable
