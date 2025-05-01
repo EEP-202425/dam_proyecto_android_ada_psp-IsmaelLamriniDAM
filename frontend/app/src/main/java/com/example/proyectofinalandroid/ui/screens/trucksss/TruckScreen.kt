@@ -3,18 +3,23 @@ package com.example.proyectofinalandroid.ui.screens.trucksss
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
+import androidx.compose.material3.Button
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -28,12 +33,15 @@ import com.example.proyectofinalandroid.network.Truck
 @Composable
 fun TruckScreen(
     truckUiState: TruckUiState,
+    onDeleteClick: () -> Unit,
+    onDeleteClose: () -> Unit = {},
     onTruckClick: (Int) -> Unit,
     onCreateClick: () -> Unit,
     modifier: Modifier = Modifier,
     contentPadding: PaddingValues = PaddingValues(0.dp)
 ) {
     when(truckUiState) {
+
         is TruckUiState.Loading -> LoadingScreen(modifier = modifier.fillMaxSize())
         is TruckUiState.Success -> ShowTrucks(
             truckUiState.trucks,
@@ -45,12 +53,17 @@ fun TruckScreen(
             modifier = modifier.fillMaxSize()
         )
         is TruckUiState.Details -> showDetails(
-            truckUiState.truck,
+            truck = truckUiState.truck,
+            onDeleteClick = onDeleteClick,
             modifier = modifier.fillMaxSize()
         )
         is TruckUiState.Error -> ErrorScreen(
             truckUiState.message,
             modifier = modifier.fillMaxSize()
+        )
+        is TruckUiState.Delete -> DeleteSucces(
+            message = "Se ha comprado con éxito",
+            onClose = onDeleteClose
         )
     }
 }
@@ -119,6 +132,7 @@ fun CreatedScreen(
 @Composable
 fun showDetails(
     truck: Truck,
+    onDeleteClick: () -> Unit,
     modifier: Modifier
 ) {
     Column(
@@ -133,6 +147,13 @@ fun showDetails(
         Text(text = "Modelo: ${truck.model.name}")
         Text(text = "Precio: ${truck.preci}")
         Text(text = "Dueño: ${truck.owner.name}, ${truck.owner.lastName}, ${truck.owner.mail}")
+
+        Button(
+            onClick = onDeleteClick,
+            modifier = Modifier.fillMaxWidth()
+        ) {
+            Text("Comprar")
+        }
     }
 }
 
@@ -155,3 +176,25 @@ fun ErrorScreen(
         }
     }
 }
+@Composable
+fun DeleteSucces(
+    message:  String,
+    onClose: () -> Unit
+) {
+    Box(
+        modifier = Modifier.fillMaxSize(),
+        contentAlignment = Alignment.Center
+    ) {
+        Column(horizontalAlignment = Alignment.CenterHorizontally) {
+            Text(
+                text = message,
+                style = MaterialTheme.typography.headlineSmall
+            )
+            Spacer(Modifier.height(16.dp))
+            Button(onClick = onClose) {
+                Text("Volver")
+            }
+        }
+    }
+}
+

@@ -46,6 +46,7 @@ fun ItemScreen(
     val uiState = vm.trucksUiState
 
     when (uiState) {
+        is TruckUiState.Delete,
         is TruckUiState.Loading,
         is TruckUiState.Success,
         is TruckUiState.Error,

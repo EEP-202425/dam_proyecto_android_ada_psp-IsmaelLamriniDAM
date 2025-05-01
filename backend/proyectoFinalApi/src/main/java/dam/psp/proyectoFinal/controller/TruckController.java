@@ -5,6 +5,7 @@ import java.security.Principal;
 import java.util.Optional;
 
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -39,6 +40,18 @@ public class TruckController {
 			this.personRepository = personRepository;
 			this.brandRepository = brandRepository;
 			this.modelRepository = modelRepository;
+	}
+	
+	@DeleteMapping("/{id}") 
+	public ResponseEntity<Void> deleteTruck(@PathVariable int id) {
+		
+		Optional<Truck> optTruck = truckRepository.findById(id);
+		if(!optTruck.isPresent()) {
+			return ResponseEntity.notFound().build();
+		} 
+			
+		truckRepository.delete(optTruck.get());
+		return ResponseEntity.noContent().build();
 	}
 	
 	// GUARDA EL NUEVO OBJETO CAMIÓN EN LA BBDD Y CREA SU URL.

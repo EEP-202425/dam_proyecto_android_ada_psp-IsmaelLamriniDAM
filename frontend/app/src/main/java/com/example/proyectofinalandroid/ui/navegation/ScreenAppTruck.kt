@@ -38,7 +38,8 @@ import androidx.compose.runtime.setValue
 enum class ScreenAppTruck() {
     List,
     Details,
-    Create
+    Create,
+    Delete
 }
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -104,6 +105,7 @@ fun TruckApp() {
 
                 TruckScreen(
                     truckUiState = uiState,
+                    onDeleteClick = {},
                     onTruckClick = {id ->
                         navController.navigate("${ScreenAppTruck.Details.name}/$id")
                     },
@@ -120,19 +122,27 @@ fun TruckApp() {
             ){ backStack ->
                 val id = backStack.arguments!!.getInt("truckId")
 
+
                 LaunchedEffect(id) { vm.getTruckById(id) }
+
                 val uiState = vm.trucksUiState
                 TruckScreen(
-                    truckUiState = uiState,
-                    onTruckClick = {},      // no se usa aquí
-                    onCreateClick = {},     // no se usa aquí
-                    modifier = Modifier.fillMaxSize(),
+                    truckUiState   = uiState,
+                    onDeleteClick  = { vm.deleteTruck(id) },
+                    onDeleteClose  = {
+                        navController.popBackStack()
+                        vm.getTrucks()
+                    },
+                    onTruckClick   = {},   // no usado aquí
+                    onCreateClick  = {},   // no usado aquí
+                    modifier       = Modifier.fillMaxSize(),
                     contentPadding = innerPadding
                 )
             }
 
-            composable (ScreenAppTruck.Create.name) {
 
+
+            composable (ScreenAppTruck.Create.name) {
                 ItemScreen(
                     vm = vm,
                     onCreated = {

@@ -18,6 +18,7 @@ import java.io.IOException
 sealed interface TruckUiState {
     object Loading: TruckUiState
     data class Success(val trucks : List<Truck>) : TruckUiState
+    data class Delete(val id: Int) : TruckUiState
     data class Created(val truck: Truck) : TruckUiState
     data class Details(val truck: Truck) : TruckUiState
     data class Error(val message: String?) : TruckUiState
@@ -32,18 +33,31 @@ class TruckViewModel : ViewModel() {
         getTrucks()
     }
 
+    fun deleteTruck(id: Int) {
+        viewModelScope.launch {
+            try {
+                val response = retrofitService.deleteTruck(id)
+                if (response.isSuccessful) {
+                    Log.d("API", "DELETE /camiones/$id → ${response.code()}")
+                    trucksUiState= TruckUiState.Delete(id)
+                } else {
+                    trucksUiState = TruckUiState.Error("Error ${response.code()}: ${response.message()}")
+                }
+            } catch (e: Exception) {
+                trucksUiState = TruckUiState.Error(e.localizedMessage ?: "Error desconocido")
+            }
+        }
+    }
+
     fun createdTruck(truck: Truck) {
         viewModelScope.launch {
             try {
                 val created = retrofitService.createTruck(truck)
-                Log.d("TruckVM", "API OK → asignando Created($created)")
                 trucksUiState = TruckUiState.Created(created)
             } catch (e : IOException) {
-                Log.e("TruckVM", "IOException creando camión", e)
                 TruckUiState.Error(e.message)
                 trucksUiState = TruckUiState.Error(e.message)
             } catch (e: HttpException) {
-                Log.e("TruckVM", "HttpException creando camión", e)
                 if(e.code() == 404) {
                     TruckUiState.Error("USUARIO NO ENCONTRADO")
                 } else {
