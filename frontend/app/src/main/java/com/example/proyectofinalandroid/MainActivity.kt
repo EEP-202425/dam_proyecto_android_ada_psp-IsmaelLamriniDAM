@@ -18,6 +18,7 @@ import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import com.example.proyectofinalandroid.ui.navegation.TruckApp
 import com.example.proyectofinalandroid.ui.theme.ProyectoFinalAndroidTheme
 import kotlin.coroutines.coroutineContext
 
@@ -31,40 +32,16 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             ProyectoFinalAndroidTheme {
-                Scaffold(
-                    topBar = {
-                            CenterAlignedTopAppBar(title = {Text("Camiones")})
-                             },
-                    modifier = Modifier.fillMaxSize(),
-                ) { innerPadding ->
-                    pintarTexto(
-                        modifier = Modifier.padding(innerPadding),
-                        "Probando"
-                    )
-                    Column {
-
-                    }
-                }
+                TruckApp()
             }
         }
     }
 }
 
-@Composable
-fun pintarTexto(modifier: Modifier, texto : String) {
-    Text(
-        texto,
-        modifier = modifier
-    )
-    modifier.fillMaxSize()
-}
-
-
-
 @Preview(showBackground = true)
 @Composable
 fun GreetingPreview() {
     ProyectoFinalAndroidTheme {
-        pintarTexto(modifier = Modifier, "Probando")
+
     }
 }

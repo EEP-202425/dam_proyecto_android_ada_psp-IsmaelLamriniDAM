@@ -6,6 +6,5 @@ import kotlinx.serialization.Serializable
 data class Brand (
     val id : Int? = null,
     val name : String,
-    val trucks : Set<Truck>
 ){
 }
