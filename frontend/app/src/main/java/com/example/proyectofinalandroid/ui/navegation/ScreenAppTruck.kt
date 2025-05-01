@@ -70,6 +70,8 @@ fun TruckApp() {
     val navController = rememberNavController()
     val canPop = navController.previousBackStackEntry != null
 
+    val vm: TruckViewModel = viewModel()
+
     val backStack by navController.currentBackStackEntryAsState()
     val route = backStack?.destination?.route
     val isList = route == ScreenAppTruck.List.name
@@ -97,7 +99,7 @@ fun TruckApp() {
             modifier = Modifier.padding(innerPadding)
         ) {
             composable (route = ScreenAppTruck.List.name) {
-                val vm: TruckViewModel = viewModel()
+
                 val uiState = vm.trucksUiState
 
                 TruckScreen(
@@ -117,7 +119,7 @@ fun TruckApp() {
                 arguments = listOf(navArgument("truckId") { type = NavType.IntType })
             ){ backStack ->
                 val id = backStack.arguments!!.getInt("truckId")
-                val vm: TruckViewModel = viewModel()
+
                 LaunchedEffect(id) { vm.getTruckById(id) }
                 val uiState = vm.trucksUiState
                 TruckScreen(
@@ -130,10 +132,11 @@ fun TruckApp() {
             }
 
             composable (ScreenAppTruck.Create.name) {
-                val vm: TruckViewModel = viewModel()
+
                 ItemScreen(
                     vm = vm,
                     onCreated = {
+                        vm.getTrucks()
                         navController.popBackStack()
                     },
                     modifier = Modifier.fillMaxSize()

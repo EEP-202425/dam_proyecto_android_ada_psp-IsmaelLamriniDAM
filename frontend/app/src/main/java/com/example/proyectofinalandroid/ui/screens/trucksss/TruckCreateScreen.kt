@@ -56,11 +56,17 @@ fun ItemScreen(
                 },
                 modifier = modifier
             )
+
         }
+
         is TruckUiState.Created -> {
             CreatedScreenTruck(
                 modifier = Modifier
             )
+            LaunchedEffect(uiState.truck.id) {
+                delay(1500)
+                onCreated()
+            }
         }
 
     }
