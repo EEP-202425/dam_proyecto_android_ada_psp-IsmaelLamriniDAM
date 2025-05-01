@@ -1,5 +1,0 @@
-package dam.psp.proyectoFinal.security;
-
-public class SecurityConfig {
-
-}
