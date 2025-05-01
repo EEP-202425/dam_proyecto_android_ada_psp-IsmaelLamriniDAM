@@ -23,6 +23,7 @@ public class PersonController {
 		this.personRepository = personRepository;
 	}
 	
+	// FUNCIONA?
 	@PostMapping
 	private ResponseEntity<Void> CreatePerson(@RequestBody Person person, UriComponentsBuilder ucb, Principal principal) {
 		Person owner = new Person(null, person.getName(), person.getLastName(), person.getMail(), person.getPassword());
