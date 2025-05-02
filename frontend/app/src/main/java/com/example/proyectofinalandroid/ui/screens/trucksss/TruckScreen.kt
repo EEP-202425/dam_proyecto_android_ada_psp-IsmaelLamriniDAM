@@ -126,7 +126,7 @@ fun CreatedScreen(
         Image(
             modifier = modifier.size(100.dp),
             painter = painterResource(R.drawable.ic_check_circle),
-            contentDescription = stringResource(R.string.created)
+            contentDescription = stringResource(R.string.sell)
         )
     }
 }

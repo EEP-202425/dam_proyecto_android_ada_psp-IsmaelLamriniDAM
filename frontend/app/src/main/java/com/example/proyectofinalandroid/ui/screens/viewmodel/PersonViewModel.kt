@@ -12,23 +12,25 @@ import okio.IOException
 
 
 sealed interface PersonUiState {
+    object Register: PersonUiState
     object Loading: PersonUiState
-    data class Register(val message: String?) : PersonUiState
+    data class RegisterSuccess(val message: String?) : PersonUiState
     data class Update(val message: String?) :  PersonUiState
     data class Error(val message: String?) : PersonUiState
 }
 
 class PersonViewModel: ViewModel() {
 
-    var personUiState: PersonUiState by mutableStateOf(PersonUiState.Loading)
+    var personUiState: PersonUiState by mutableStateOf(PersonUiState.Register)
         private set
 
     fun createdOwner(owner: Person) {
         viewModelScope.launch {
+            personUiState = PersonUiState.Loading
             try {
                 val response = PersonApi.retrofitService.createdPerson(owner)
                 if (response.isSuccessful){
-                personUiState = PersonUiState.Register("Usuario registrado con éxito")
+                personUiState = PersonUiState.RegisterSuccess("Usuario registrado con éxito")
                 } else {
                     personUiState = PersonUiState.Error("Error ${response.code()} ${response.message()}")
                 }

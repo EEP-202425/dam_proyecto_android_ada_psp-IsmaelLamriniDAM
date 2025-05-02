@@ -148,8 +148,8 @@ fun CreatedScreenTruck( modifier: Modifier) {
         Image(
             modifier = modifier.size(100.dp),
             painter = painterResource(R.drawable.ic_check_circle),
-            contentDescription = stringResource(R.string.created)
+            contentDescription = stringResource(R.string.sell)
         )
-        Text(text = stringResource(R.string.created))
+        Text(text = stringResource(R.string.sell))
     }
 }

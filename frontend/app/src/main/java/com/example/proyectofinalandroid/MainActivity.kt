@@ -21,6 +21,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.proyectofinalandroid.ui.navegation.TruckApp
 import com.example.proyectofinalandroid.ui.screens.login.LoginScreen
+import com.example.proyectofinalandroid.ui.screens.personsss.RegisterSuccessful
 import com.example.proyectofinalandroid.ui.theme.ProyectoFinalAndroidTheme
 import kotlin.coroutines.coroutineContext
 
@@ -44,8 +45,8 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun GreetingPreview() {
     ProyectoFinalAndroidTheme {
-        LoginScreen(
-            modifier = Modifier.fillMaxSize().padding(16.dp),
-        ) { }
+        RegisterSuccessful(
+            modifier = Modifier.fillMaxSize(),
+        )
     }
 }

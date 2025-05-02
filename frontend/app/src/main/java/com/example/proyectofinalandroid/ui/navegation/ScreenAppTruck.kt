@@ -34,6 +34,9 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.unit.dp
 import com.example.proyectofinalandroid.ui.screens.inicioApp.ScreenButtonRegisterAndLogin
 import com.example.proyectofinalandroid.ui.screens.login.LoginScreen
+import com.example.proyectofinalandroid.ui.screens.personsss.PersonScreen
+import com.example.proyectofinalandroid.ui.screens.viewmodel.PersonUiState
+import com.example.proyectofinalandroid.ui.screens.viewmodel.PersonViewModel
 
 enum class ScreenAppTruck() {
     Start,
@@ -75,6 +78,7 @@ fun TruckApp() {
     val canPop = navController.previousBackStackEntry != null
 
     val vm: TruckViewModel = viewModel()
+    val vmPerson: PersonViewModel = viewModel()
 
     val backStack by navController.currentBackStackEntryAsState()
     val route = backStack?.destination?.route
@@ -118,6 +122,17 @@ fun TruckApp() {
                 LoginScreen(
                     modifier = Modifier.fillMaxSize().padding(16.dp),
                     onLoginClick = {
+                        navController.navigate("${ScreenAppTruck.List.name}")
+                    }
+                )
+            }
+
+            composable (route = ScreenAppTruck.Register.name) {
+                val uiState = vmPerson.personUiState
+                PersonScreen(
+                    vm = vmPerson,
+                    modifier = Modifier.fillMaxSize().padding(16.dp),
+                    onCreateUserClick = {
                         navController.navigate("${ScreenAppTruck.List.name}")
                     }
                 )
