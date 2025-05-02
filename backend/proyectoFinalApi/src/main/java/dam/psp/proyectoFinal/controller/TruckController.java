@@ -59,14 +59,17 @@ public class TruckController {
 	@PostMapping
 	private ResponseEntity<Truck> createCamion(@RequestBody Truck newTruck, UriComponentsBuilder ucb, Principal principal) {
 		
-		Optional<Brand> optbrand = Optional.ofNullable(brandRepository.findByName(newTruck.getBrand().getName()));
-		Brand brand = optbrand.isPresent() ? optbrand.get() : brandRepository.save(new Brand(null, newTruck.getBrand().getName()));
+		Optional<Brand> optbrand = Optional.ofNullable(brandRepository.findByName(newTruck.getBrand().getName().toLowerCase()));
+		Brand brand = optbrand.isPresent() ? optbrand.get() : brandRepository.save(new Brand(null, newTruck.getBrand().getName().toLowerCase()));
 		
-		Optional<Model> optModel = Optional.ofNullable(modelRepository.findByName(newTruck.getModel().getName()));
-		Model model = optModel.isPresent() ? optModel.get() : modelRepository.save(new Model(null, newTruck.getModel().getName()));
+		Optional<Model> optModel = Optional.ofNullable(modelRepository.findByName(newTruck.getModel().getName().toLowerCase()));
+		Model model = optModel.isPresent() ? optModel.get() : modelRepository.save(new Model(null, newTruck.getModel().getName().toLowerCase()));
 		
-		Optional<Person> optPerson = Optional.ofNullable(personRepository.findByName(newTruck.getOwner().getName()));
-		Person owner = optPerson.isPresent() ? optPerson.get() : personRepository.save(new Person(null, newTruck.getOwner().getName(),newTruck.getOwner().getLastName(), newTruck.getOwner().getMail(), newTruck.getOwner().getPassword()));
+		Optional<Person> optPerson = Optional.ofNullable(personRepository.findByName(newTruck.getOwner().getName().toLowerCase()));
+		if(!optPerson.isPresent()) {
+			return ResponseEntity.notFound().build();
+		}
+		Person owner = optPerson.get();
 		
 		Truck createTruck = new Truck(null ,brand, model, newTruck.getPreci(), owner);
 		Truck truckSave = truckRepository.save(createTruck);

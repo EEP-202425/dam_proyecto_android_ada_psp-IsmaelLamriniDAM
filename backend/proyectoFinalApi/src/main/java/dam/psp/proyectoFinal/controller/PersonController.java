@@ -30,7 +30,7 @@ public class PersonController {
 	
 	@PostMapping
 	private ResponseEntity<Void> CreatePerson(@RequestBody Person person, UriComponentsBuilder ucb, Principal principal) {
-		Person owner = new Person(null, person.getName(), person.getLastName(), person.getMail(), person.getPassword());
+		Person owner = new Person(null, person.getName().toLowerCase(), person.getLastName().toLowerCase(), person.getMail().toLowerCase(), person.getPassword());
 		Person ownerSave = personRepository.save(owner);
 		URI newURL = ucb.path("personas/{id}").buildAndExpand(ownerSave.getId()).toUri();
 		return ResponseEntity.created(newURL).build();
@@ -45,9 +45,9 @@ public class PersonController {
 		
 		Person person = optPerson.get();
 		
-		person.setName(personUpdate.getName());
-		person.setLastName(personUpdate.getLastName());
-		person.setMail(personUpdate.getMail());
+		person.setName(personUpdate.getName().toLowerCase());
+		person.setLastName(personUpdate.getLastName().toLowerCase());
+		person.setMail(personUpdate.getMail().toLowerCase());
 		person.setPassword(personUpdate.getPassword());
 		
 		personRepository.save(person);
