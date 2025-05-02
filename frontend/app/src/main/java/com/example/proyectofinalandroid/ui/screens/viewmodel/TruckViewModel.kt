@@ -1,4 +1,4 @@
-package com.example.proyectofinalandroid.ui.screens.trucksss
+package com.example.proyectofinalandroid.ui.screens.viewmodel
 
 import android.util.Log
 import androidx.compose.runtime.getValue

@@ -29,6 +29,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import com.example.proyectofinalandroid.R
 import com.example.proyectofinalandroid.network.Truck
+import com.example.proyectofinalandroid.ui.screens.viewmodel.TruckUiState
 
 @Composable
 fun TruckScreen(

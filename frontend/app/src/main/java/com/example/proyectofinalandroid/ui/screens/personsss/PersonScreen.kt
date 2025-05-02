@@ -15,6 +15,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import com.example.proyectofinalandroid.R
+import com.example.proyectofinalandroid.ui.screens.viewmodel.PersonUiState
 
 @Composable
 fun PersonScreen (

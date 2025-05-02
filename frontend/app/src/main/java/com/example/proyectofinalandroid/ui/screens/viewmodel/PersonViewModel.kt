@@ -1,4 +1,4 @@
-package com.example.proyectofinalandroid.ui.screens.personsss
+package com.example.proyectofinalandroid.ui.screens.viewmodel
 
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf

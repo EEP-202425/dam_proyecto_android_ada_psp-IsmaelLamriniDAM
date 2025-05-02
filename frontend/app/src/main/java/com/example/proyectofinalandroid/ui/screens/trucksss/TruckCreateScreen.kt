@@ -33,6 +33,8 @@ import com.example.proyectofinalandroid.network.Brand
 import com.example.proyectofinalandroid.network.Model
 import com.example.proyectofinalandroid.network.Person
 import com.example.proyectofinalandroid.network.Truck
+import com.example.proyectofinalandroid.ui.screens.viewmodel.TruckUiState
+import com.example.proyectofinalandroid.ui.screens.viewmodel.TruckViewModel
 import kotlinx.coroutines.delay
 
 

@@ -4,8 +4,6 @@ import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Add
-import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material.icons.filled.Clear
 import androidx.compose.material.icons.filled.Create
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -24,7 +22,7 @@ import androidx.compose.ui.Modifier
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.example.proyectofinalandroid.ui.screens.trucksss.TruckViewModel
+import com.example.proyectofinalandroid.ui.screens.viewmodel.TruckViewModel
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavType
 import androidx.navigation.compose.currentBackStackEntryAsState
@@ -33,7 +31,6 @@ import com.example.proyectofinalandroid.ui.screens.trucksss.ItemScreen
 import com.example.proyectofinalandroid.ui.screens.trucksss.TruckScreen
 import androidx.compose.material3.FloatingActionButton
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.setValue
 
 enum class ScreenAppTruck() {
     List,
