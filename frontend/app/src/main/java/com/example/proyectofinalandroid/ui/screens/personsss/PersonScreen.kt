@@ -25,7 +25,8 @@ fun PersonScreen (
 ){
     when(personUiState) {
         is PersonUiState.Loading -> LoadingScreen(modifier = modifier.fillMaxSize())
-        is PersonUiState.Login -> LoginSuccessful(modifier = modifier.fillMaxSize())
+        is PersonUiState.Register -> RegisterSuccessful(modifier = modifier.fillMaxSize())
+        is PersonUiState.Update -> UpdateSuccessful(modifier = modifier.fillMaxSize())
         is PersonUiState.Error -> ErrorScreen(
             personUiState.message,
             modifier = modifier.fillMaxSize()
@@ -43,17 +44,38 @@ fun LoadingScreen(modifier: Modifier) {
 }
 
 @Composable
-fun LoginSuccessful(modifier: Modifier) {
-    Image(
-        modifier = modifier.size(100.dp),
-        painter = painterResource(R.drawable.ic_check_circle),
-        contentDescription = stringResource(R.string.login)
-    )
+fun RegisterSuccessful(modifier: Modifier) {
+    Column (
+        modifier = modifier,
+        verticalArrangement = Arrangement.Center,
+        horizontalAlignment = Alignment.CenterHorizontally
+    ) {
+        Image(
+            modifier = modifier.size(100.dp),
+            painter = painterResource(R.drawable.ic_check_circle),
+            contentDescription = stringResource(R.string.login)
+        )
+    }
+}
+
+@Composable
+fun UpdateSuccessful(modifier: Modifier) {
+    Column (
+        modifier = modifier,
+        verticalArrangement = Arrangement.Center,
+        horizontalAlignment = Alignment.CenterHorizontally
+    ) {
+        Image(
+            modifier = modifier.size(100.dp),
+            painter = painterResource(R.drawable.ic_check_circle),
+            contentDescription = stringResource(R.string.update)
+        )
+    }
 }
 
 @Composable
 fun ErrorScreen(
-    messsage: String?,
+    message: String?,
     modifier: Modifier = Modifier
 ) {
     Column (
@@ -63,10 +85,10 @@ fun ErrorScreen(
     ) {
         Image(
             painter = painterResource(id = R.drawable.ic_connection_error),
-            contentDescription = ""
+            contentDescription = "Error"
         )
-        if(messsage != null){
-            Text(text = messsage, modifier = Modifier.padding(16.dp))
+        if(message != null){
+            Text(text = message, modifier = Modifier.padding(16.dp))
         }
     }
 }

@@ -13,7 +13,8 @@ import okio.IOException
 
 sealed interface PersonUiState {
     object Loading: PersonUiState
-    data class Login(val owner: Person) : PersonUiState
+    data class Register(val message: String?) : PersonUiState
+    data class Update(val message: String?) :  PersonUiState
     data class Error(val message: String?) : PersonUiState
 }
 
@@ -25,12 +26,26 @@ class PersonViewModel: ViewModel() {
     fun createdOwner(owner: Person) {
         viewModelScope.launch {
             try {
-                val createdOwner = PersonApi.retrofitService.createdPerson(owner)
-                personUiState  = PersonUiState.Login(createdOwner)
-            } catch (e : IOException) {
-                PersonUiState.Error(e.message)
+                val response = PersonApi.retrofitService.createdPerson(owner)
+                if (response.isSuccessful){
+                personUiState = PersonUiState.Register("Usuario registrado con éxito")
+                } else {
+                    personUiState = PersonUiState.Error("Error ${response.code()} ${response.message()}")
+                }
+            } catch (e: IOException) {
+                personUiState =  PersonUiState.Error(e.message)
             }
         }
     }
 
+    fun updateOwner(id: Int, owner: Person) {
+        viewModelScope.launch {
+            try {
+                val update = PersonApi.retrofitService.updatePerson(id, owner)
+                personUiState = PersonUiState.Update("Se ha actualizado con éxito")
+            } catch (e: IOException) {
+                PersonUiState.Error(e.message)
+            }
+        }
+    }
 }

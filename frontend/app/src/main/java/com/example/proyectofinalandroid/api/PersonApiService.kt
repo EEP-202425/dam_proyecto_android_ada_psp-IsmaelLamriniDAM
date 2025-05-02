@@ -4,6 +4,7 @@ import com.example.proyectofinalandroid.network.Person
 import com.jakewharton.retrofit2.converter.kotlinx.serialization.asConverterFactory
 import kotlinx.serialization.json.Json
 import okhttp3.MediaType.Companion.toMediaType
+import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.http.Body
 import retrofit2.http.POST
@@ -19,7 +20,7 @@ private val retrofit = Retrofit.Builder()
 
 interface PersonApiService {
     @POST("personas")
-    suspend fun createdPerson(@Body owner: Person): Person
+    suspend fun createdPerson(@Body owner: Person): Response<Void>
 
     @PUT("personas/{id}")
     suspend fun updatePerson(@Path("id") id: Int, @Body owner: Person): Person
