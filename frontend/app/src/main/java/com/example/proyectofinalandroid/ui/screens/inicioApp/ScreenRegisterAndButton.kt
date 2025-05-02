@@ -1,4 +1,4 @@
-package com.example.proyectofinalandroid.ui.screens.register
+package com.example.proyectofinalandroid.ui.screens.inicioApp
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column

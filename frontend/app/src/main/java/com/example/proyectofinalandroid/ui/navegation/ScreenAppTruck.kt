@@ -32,7 +32,8 @@ import com.example.proyectofinalandroid.ui.screens.trucksss.TruckScreen
 import androidx.compose.material3.FloatingActionButton
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.unit.dp
-import com.example.proyectofinalandroid.ui.screens.register.ScreenButtonRegisterAndLogin
+import com.example.proyectofinalandroid.ui.screens.inicioApp.ScreenButtonRegisterAndLogin
+import com.example.proyectofinalandroid.ui.screens.login.LoginScreen
 
 enum class ScreenAppTruck() {
     Start,
@@ -109,6 +110,15 @@ fun TruckApp() {
                     },
                     onRegisterClick = {
                         navController.navigate("${ScreenAppTruck.Register.name}")
+                    }
+                )
+            }
+
+            composable (route = ScreenAppTruck.Login.name) {
+                LoginScreen(
+                    modifier = Modifier.fillMaxSize().padding(16.dp),
+                    onLoginClick = {
+                        navController.navigate("${ScreenAppTruck.List.name}")
                     }
                 )
             }
