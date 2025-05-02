@@ -54,6 +54,7 @@ fun TruckScreen(
         )
         is TruckUiState.Details -> showDetails(
             truck = truckUiState.truck,
+            onDeleteClose = onDeleteClose,
             onDeleteClick = onDeleteClick,
             modifier = modifier.fillMaxSize()
         )
@@ -132,6 +133,7 @@ fun CreatedScreen(
 @Composable
 fun showDetails(
     truck: Truck,
+    onDeleteClose: () -> Unit = {},
     onDeleteClick: () -> Unit,
     modifier: Modifier
 ) {

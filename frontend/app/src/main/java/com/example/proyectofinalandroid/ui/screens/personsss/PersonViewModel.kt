@@ -6,7 +6,7 @@ import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.proyectofinalandroid.network.Person
-import com.example.proyectofinalandroid.network.api.PersonApi
+import com.example.proyectofinalandroid.api.PersonApi
 import kotlinx.coroutines.launch
 import okio.IOException
 

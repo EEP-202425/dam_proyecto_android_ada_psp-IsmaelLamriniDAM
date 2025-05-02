@@ -7,8 +7,7 @@ import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.proyectofinalandroid.network.Truck
-import com.example.proyectofinalandroid.network.api.TruckApi
-import com.example.proyectofinalandroid.network.api.TruckApi.retrofitService
+import com.example.proyectofinalandroid.api.TruckApi.retrofitService
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
@@ -72,7 +71,7 @@ class TruckViewModel : ViewModel() {
         viewModelScope.launch {
             try {
                 val list = withContext(Dispatchers.IO) {
-                    TruckApi.retrofitService.getTrucks()
+                    retrofitService.getTrucks()
                 }
                 trucksUiState = TruckUiState.Success(list)
            } catch (e : IOException) {

@@ -116,6 +116,7 @@ fun TruckApp() {
                     contentPadding = innerPadding
                 )
             }
+
             composable (
                 route = "${ScreenAppTruck.Details.name}/{truckId}",
                 arguments = listOf(navArgument("truckId") { type = NavType.IntType })
@@ -126,12 +127,13 @@ fun TruckApp() {
                 LaunchedEffect(id) { vm.getTruckById(id) }
 
                 val uiState = vm.trucksUiState
+
                 TruckScreen(
                     truckUiState   = uiState,
                     onDeleteClick  = { vm.deleteTruck(id) },
                     onDeleteClose  = {
-                        navController.popBackStack()
                         vm.getTrucks()
+                        navController.popBackStack()
                     },
                     onTruckClick   = {},   // no usado aquí
                     onCreateClick  = {},   // no usado aquí
@@ -139,8 +141,6 @@ fun TruckApp() {
                     contentPadding = innerPadding
                 )
             }
-
-
 
             composable (ScreenAppTruck.Create.name) {
                 ItemScreen(

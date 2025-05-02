@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -65,13 +66,7 @@ public class TruckController {
 		Model model = optModel.isPresent() ? optModel.get() : modelRepository.save(new Model(null, newTruck.getModel().getName()));
 		
 		Optional<Person> optPerson = Optional.ofNullable(personRepository.findByName(newTruck.getOwner().getName()));
-//		Person owner = null;
 		Person owner = optPerson.isPresent() ? optPerson.get() : personRepository.save(new Person(null, newTruck.getOwner().getName(),newTruck.getOwner().getLastName(), newTruck.getOwner().getMail(), newTruck.getOwner().getPassword()));
-//		if (optPerson.isPresent()) {
-//			owner = optPerson.get();
-//		} else {
-//			return ResponseEntity.notFound().build();
-//		}
 		
 		Truck createTruck = new Truck(null ,brand, model, newTruck.getPreci(), owner);
 		Truck truckSave = truckRepository.save(createTruck);
