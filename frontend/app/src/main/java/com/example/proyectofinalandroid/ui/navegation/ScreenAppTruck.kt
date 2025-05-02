@@ -31,8 +31,13 @@ import com.example.proyectofinalandroid.ui.screens.trucksss.ItemScreen
 import com.example.proyectofinalandroid.ui.screens.trucksss.TruckScreen
 import androidx.compose.material3.FloatingActionButton
 import androidx.compose.runtime.getValue
+import androidx.compose.ui.unit.dp
+import com.example.proyectofinalandroid.ui.screens.register.ScreenButtonRegisterAndLogin
 
 enum class ScreenAppTruck() {
+    Start,
+    Register,
+    Login,
     List,
     Details,
     Create,
@@ -93,9 +98,21 @@ fun TruckApp() {
     ) { innerPadding: PaddingValues ->
         NavHost(
             navController = navController,
-            startDestination = ScreenAppTruck.List.name,
+            startDestination = ScreenAppTruck.Start.name,
             modifier = Modifier.padding(innerPadding)
         ) {
+            composable (route = ScreenAppTruck.Start.name){
+                ScreenButtonRegisterAndLogin(
+                    modifier = Modifier.fillMaxSize().padding(16.dp),
+                    onLoginClick = {
+                        navController.navigate("${ScreenAppTruck.Login.name}")
+                    },
+                    onRegisterClick = {
+                        navController.navigate("${ScreenAppTruck.Register.name}")
+                    }
+                )
+            }
+
             composable (route = ScreenAppTruck.List.name) {
 
                 val uiState = vm.trucksUiState
