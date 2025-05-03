@@ -46,7 +46,12 @@ fun PersonScreen (
             delay(1500)
             onCreateUserClick()
         }
+        if(personUiState is PersonUiState.Error){
+            delay(1500)
+            vm.resetToRegister()
+        }
     }
+
 
     when(personUiState) {
         is PersonUiState.Register -> RegisterScreen(
@@ -59,10 +64,14 @@ fun PersonScreen (
         is PersonUiState.Loading -> LoadingScreen(modifier = modifier.fillMaxSize())
         is PersonUiState.RegisterSuccess -> RegisterSuccessful(modifier = modifier.fillMaxSize())
         is PersonUiState.Update -> UpdateSuccessful(modifier = modifier.fillMaxSize())
-        is PersonUiState.Error -> ErrorScreen(
-            message = (personUiState as PersonUiState.Error).message,
-            modifier = modifier.fillMaxSize()
-        )
+        is PersonUiState.Error -> {
+            ErrorScreen(
+                message = (personUiState as PersonUiState.Error).message,
+                modifier = modifier.fillMaxSize()
+            )
+
+        }
+
     }
 }
 
@@ -143,6 +152,9 @@ fun RegisterScreen(
         var mail by remember { mutableStateOf("") }
         var password by remember { mutableStateOf("") }
 
+        Text(text = "REGISTRO:")
+
+
         OutlinedTextField(
             value = nameUser,
             onValueChange = {nameUser = it},
@@ -167,7 +179,7 @@ fun RegisterScreen(
             label = { Text("PASSWORD") }
         )
 
-
+        Spacer(Modifier.height(10.dp))
 
         Button(
             onClick = {
@@ -178,7 +190,13 @@ fun RegisterScreen(
                     mail = mail,
                     password = password
                 )
-                vm.createdOwner(newPerson)
+
+                if(nameUser.isBlank() && lastNameUser.isBlank() && mail.isBlank() && password.isBlank()) {
+                    vm.statusErrorRegister("CAMPOS IMCOMPLETOS")
+                    return@Button
+                } else {
+                    vm.createdOwner(newPerson)
+                }
 
                 onCreateUserClick(newPerson)
             }

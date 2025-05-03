@@ -17,6 +17,7 @@ import org.springframework.web.util.UriComponentsBuilder;
 
 import dam.psp.proyectoFinal.repository.PersonRepository;
 import dam.psp.proyectoFinal.tablas.Person;
+import jakarta.validation.Valid;
 
 @RestController
 @RequestMapping("/personas")
@@ -29,7 +30,7 @@ public class PersonController {
 	}
 	
 	@PostMapping
-	private ResponseEntity<Void> CreatePerson(@RequestBody Person person, UriComponentsBuilder ucb, Principal principal) {
+	private ResponseEntity<Void> CreatePerson(@Valid @RequestBody Person person, UriComponentsBuilder ucb, Principal principal) {
 		Person owner = new Person(null, person.getName().toLowerCase(), person.getLastName().toLowerCase(), person.getMail().toLowerCase(), person.getPassword());
 		Person ownerSave = personRepository.save(owner);
 		URI newURL = ucb.path("personas/{id}").buildAndExpand(ownerSave.getId()).toUri();

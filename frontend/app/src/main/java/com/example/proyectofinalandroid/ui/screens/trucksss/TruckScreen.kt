@@ -14,6 +14,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.magnifier
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Button
@@ -86,10 +87,13 @@ fun ShowTrucks(
     onItemClick: (Int) -> Unit,
     modifier: Modifier = Modifier
 ){
+    Text(text = "CAMIONES", modifier = Modifier.padding(163.dp, 35.dp))
+
     LazyColumn (
         modifier = modifier.fillMaxSize().padding(8.dp),
         verticalArrangement = Arrangement.spacedBy(8.dp)
     ){
+
         items (trucks) {
             truck ->
             Card(
@@ -145,6 +149,9 @@ fun showDetails(
             .padding(16.dp),
         verticalArrangement = Arrangement.spacedBy(8.dp)
     ) {
+
+        Text(text = "CAMION")
+
         Text(text = "ID: ${truck.id}")
         Text(text = "Marca: ${truck.brand.name}")
         Text(text = "Modelo: ${truck.model.name}")

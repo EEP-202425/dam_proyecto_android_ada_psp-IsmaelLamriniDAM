@@ -48,7 +48,13 @@ fun LoginScreen(
         Spacer(Modifier.height(10.dp))
 
         Button(
-            onClick = onLoginClick
+            onClick = {
+                if (nameUser.isBlank() && passwordUser.isBlank()) {
+                    return@Button
+                } else {
+                    onLoginClick()
+                }
+            }
         ) {
             Text(text = "ACCEDER")
         }

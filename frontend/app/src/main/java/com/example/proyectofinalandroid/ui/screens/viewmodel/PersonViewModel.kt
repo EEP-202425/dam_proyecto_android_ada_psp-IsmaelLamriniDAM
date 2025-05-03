@@ -36,6 +36,8 @@ class PersonViewModel: ViewModel() {
                 }
             } catch (e: IOException) {
                 personUiState =  PersonUiState.Error(e.message)
+            } catch (e: retrofit2.HttpException) {
+                personUiState =  PersonUiState.Error("${e.code()}, ${e.message()}")
             }
         }
     }
@@ -49,5 +51,13 @@ class PersonViewModel: ViewModel() {
                 PersonUiState.Error(e.message)
             }
         }
+    }
+
+    fun statusErrorRegister (message: String?) {
+        personUiState = PersonUiState.Error(message)
+    }
+
+    fun resetToRegister(){
+        personUiState = PersonUiState.Register
     }
 }

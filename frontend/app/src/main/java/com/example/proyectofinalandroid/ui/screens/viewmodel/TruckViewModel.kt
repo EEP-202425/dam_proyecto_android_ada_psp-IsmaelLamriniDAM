@@ -94,5 +94,9 @@ class TruckViewModel : ViewModel() {
     }
 
 
+    fun errorCreateTruck(message: String?) {
+        trucksUiState = TruckUiState.Error(message);
+    }
+
 }
 

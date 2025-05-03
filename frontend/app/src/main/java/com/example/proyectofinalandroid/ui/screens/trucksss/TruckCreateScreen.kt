@@ -54,6 +54,7 @@ fun ItemScreen(
         is TruckUiState.Error,
         is TruckUiState.Details -> {
             TruckCreateScreen(
+                vm = vm,
                 onSubmit =  { newTruck ->
                     vm.createdTruck(newTruck)
                 },
@@ -77,6 +78,7 @@ fun ItemScreen(
 
 @Composable
 fun TruckCreateScreen(
+    vm: TruckViewModel,
     onSubmit: (Truck) -> Unit,
     modifier: Modifier = Modifier
 ) {
@@ -125,7 +127,11 @@ fun TruckCreateScreen(
                     preci = price.toDoubleOrNull() ?: 0.0,
                     owner = Person(name = ownerName)
                 )
-                onSubmit(newTruck)
+                if(brandName.isBlank() && modelName.isBlank() && ownerName.isBlank()) {
+                    return@Button
+                } else {
+                    onSubmit(newTruck)
+                }
             },
             modifier = Modifier.align(Alignment.End)
         ) {

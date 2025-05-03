@@ -7,6 +7,8 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "camiones")
@@ -17,14 +19,17 @@ public class Truck {
 	private Integer id;
 	
 	@ManyToOne(fetch = FetchType.LAZY)
+	@NotNull(message = "Campo Vacio")
 	private Brand brand;
 	
 	@ManyToOne(fetch = FetchType.LAZY)
+	@NotNull(message = "Campo Vacio")
 	private Model model;
 	
 	private double preci;
 	
 	@ManyToOne(fetch = FetchType.LAZY)
+	@NotNull(message = "Campo Vacio")
 	private Person owner;
 	
 	public Truck() {
