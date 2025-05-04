@@ -194,8 +194,6 @@ fun RegisterScreen(
                 if(nameUser.isBlank() && lastNameUser.isBlank() && mail.isBlank() && password.isBlank()) {
                     vm.statusErrorRegister("CAMPOS IMCOMPLETOS")
                     return@Button
-                } else {
-                    vm.createdOwner(newPerson)
                 }
 
                 onCreateUserClick(newPerson)

@@ -14,7 +14,7 @@ import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
 
 @Entity
@@ -32,7 +32,7 @@ public class Person {
 	@NotBlank(message = "Campo Vacío")
 	private String lastName;
 	
-	@Email(message = "Formato inválido")
+	@Email(message = "Formato inválido", regexp = "^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,6}$")
 	@NotBlank(message = "Campo Vacio")
 	private String mail;
 	
@@ -85,7 +85,7 @@ public class Person {
 	}
 
 	public void setMail(String mail) {
-		this.mail = mail;
+		this.mail = (mail == null) ? null : mail.trim();
 	}
 
 	public String getPassword() {

@@ -31,7 +31,10 @@ public class PersonController {
 	
 	@PostMapping
 	private ResponseEntity<Void> CreatePerson(@Valid @RequestBody Person person, UriComponentsBuilder ucb, Principal principal) {
-		Person owner = new Person(null, person.getName().toLowerCase(), person.getLastName().toLowerCase(), person.getMail().toLowerCase(), person.getPassword());
+		
+		String newMail = firstLetterTolowerCase(person.getMail());
+		
+		Person owner = new Person(null, person.getName(), person.getLastName().toLowerCase(), newMail, person.getPassword());
 		Person ownerSave = personRepository.save(owner);
 		URI newURL = ucb.path("personas/{id}").buildAndExpand(ownerSave.getId()).toUri();
 		return ResponseEntity.created(newURL).build();
@@ -54,6 +57,12 @@ public class PersonController {
 		personRepository.save(person);
 		
 		return ResponseEntity.ok(person);
+	}
+	
+	private static String firstLetterTolowerCase(String mail) {
+		String firstLetter = mail.substring(0, 1).toLowerCase();
+		String newMail = firstLetter + mail.substring(1);
+		return newMail;
 	}
 	
 	
