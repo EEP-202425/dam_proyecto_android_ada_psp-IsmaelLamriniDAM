@@ -20,7 +20,7 @@ private val retrofit = Retrofit.Builder()
 
 interface PersonApiService {
     @POST("personas")
-    suspend fun createdPerson(@Body owner: Person): Response<Void>
+    suspend fun createdPerson(@Body owner: Person): Response<Unit>
 
     @PUT("personas/{id}")
     suspend fun updatePerson(@Path("id") id: Int, @Body owner: Person): Person

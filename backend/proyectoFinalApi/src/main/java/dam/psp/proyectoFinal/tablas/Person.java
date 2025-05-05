@@ -15,6 +15,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
+import jakarta.persistence.UniqueConstraint;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Pattern;
@@ -22,7 +23,9 @@ import jakarta.validation.constraints.Size;
 
 @Entity
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
-@Table(name = "personas")
+@Table(name = "personas",
+	uniqueConstraints = @UniqueConstraint(columnNames = "name")
+)
 public class Person {
 	
 	@Id
@@ -55,7 +58,7 @@ public class Person {
 	public Person(Integer id, String name, String lastName, String mail, String password) {
 		this.id = id;
 		this.name = name;
-		this.lastName = password;
+		this.lastName = lastName;
 		this.mail = mail;
 		this.password = password;
 	}

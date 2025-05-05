@@ -60,7 +60,7 @@ fun PersonScreen (
             onCreateUserClick = { person ->
                 vm.createdOwner(person)
             }
-            )
+        )
         is PersonUiState.Loading -> LoadingScreen(modifier = modifier.fillMaxSize())
         is PersonUiState.RegisterSuccess -> RegisterSuccessful(modifier = modifier.fillMaxSize())
         is PersonUiState.Update -> UpdateSuccessful(modifier = modifier.fillMaxSize())
