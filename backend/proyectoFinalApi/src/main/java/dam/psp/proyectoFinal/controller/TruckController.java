@@ -5,11 +5,11 @@ import java.security.Principal;
 import java.util.Optional;
 
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -23,6 +23,7 @@ import dam.psp.proyectoFinal.tablas.Brand;
 import dam.psp.proyectoFinal.tablas.Model;
 import dam.psp.proyectoFinal.tablas.Person;
 import dam.psp.proyectoFinal.tablas.Truck;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 
 @RestController
 @RequestMapping("/camiones")
@@ -57,7 +58,7 @@ public class TruckController {
 	
 	// GUARDA EL NUEVO OBJETO CAMIÓN EN LA BBDD Y CREA SU URL.
 	@PostMapping
-	private ResponseEntity<Truck> createCamion(@RequestBody Truck newTruck, UriComponentsBuilder ucb, Principal principal) {
+	public ResponseEntity<Truck> createCamion(@RequestBody Truck newTruck, UriComponentsBuilder ucb, 	@AuthenticationPrincipal UserDetails userDetails) {
 		
 		Optional<Brand> optbrand = Optional.ofNullable(brandRepository.findByName(newTruck.getBrand().getName().toLowerCase()));
 		Brand brand = optbrand.isPresent() ? optbrand.get() : brandRepository.save(new Brand(null, newTruck.getBrand().getName().toLowerCase()));
@@ -65,7 +66,10 @@ public class TruckController {
 		Optional<Model> optModel = Optional.ofNullable(modelRepository.findByName(newTruck.getModel().getName().toLowerCase()));
 		Model model = optModel.isPresent() ? optModel.get() : modelRepository.save(new Model(null, newTruck.getModel().getName().toLowerCase()));
 		
-		Optional<Person> optPerson = Optional.ofNullable(personRepository.findByName(newTruck.getOwner().getName().toLowerCase()));
+		String userName = userDetails.getUsername();
+		
+		
+		Optional<Person> optPerson = Optional.ofNullable(personRepository.findByName(userName));
 		if(!optPerson.isPresent()) {
 			return ResponseEntity.notFound().build();
 		}
