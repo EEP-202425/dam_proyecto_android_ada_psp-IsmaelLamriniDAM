@@ -127,7 +127,7 @@ fun TruckCreateScreen(
                     preci = price.toDoubleOrNull() ?: 0.0,
                     owner = Person(name = ownerName)
                 )
-                if(brandName.isBlank() && modelName.isBlank() && ownerName.isBlank()) {
+                if(brandName.isBlank() || modelName.isBlank() || ownerName.isBlank()) {
                     return@Button
                 } else {
                     onSubmit(newTruck)

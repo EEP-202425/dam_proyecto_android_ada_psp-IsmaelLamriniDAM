@@ -3,9 +3,12 @@ package dam.psp.proyectoFinal.tablas;
 import java.util.HashSet;
 import java.util.Set;
 
+import org.hibernate.validator.constraints.UniqueElements;
+
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import jakarta.persistence.CascadeType;
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -27,6 +30,7 @@ public class Person {
 	private Integer id;
 	
 	@NotBlank(message = "Campo Vacío")
+	@Column(unique = true)
 	private String name;
 	
 	@NotBlank(message = "Campo Vacío")
