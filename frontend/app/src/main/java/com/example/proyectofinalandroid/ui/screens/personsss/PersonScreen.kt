@@ -191,7 +191,7 @@ fun RegisterScreen(
                     password = password
                 )
 
-                if(nameUser.isBlank() && lastNameUser.isBlank() && mail.isBlank() && password.isBlank()) {
+                if(nameUser.isBlank() || lastNameUser.isBlank() || mail.isBlank() || password.isBlank()) {
                     vm.statusErrorRegister("CAMPOS IMCOMPLETOS")
                     return@Button
                 }
