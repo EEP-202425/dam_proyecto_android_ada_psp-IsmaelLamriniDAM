@@ -6,5 +6,4 @@ import dam.psp.proyectoFinal.tablas.Model;
 
 public interface ModelRepository extends CrudRepository<Model, String> {
 	
-	Model findByName(String name);
 }

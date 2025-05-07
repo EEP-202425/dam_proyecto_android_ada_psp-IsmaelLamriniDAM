@@ -6,7 +6,6 @@ import dam.psp.proyectoFinal.tablas.Brand;
 
 public interface BrandRepository extends CrudRepository<Brand, String> {
 
-	Brand findByName(String name);
 		
 
 }

@@ -33,6 +33,8 @@ import dam.psp.proyectoFinal.tablas.Truck;
 @AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.ANY)
 class TruckControllerTest {
 	
+	private static final int LIMITE = 3;
+
 	@Autowired
 	TestRestTemplate restTemplate;
 	
@@ -50,13 +52,15 @@ class TruckControllerTest {
 	
 	@BeforeAll
 	void creatTrucks() {
-		for (int i = 0; i < 3; i++) {
+		for (int i = 0; i < LIMITE; i++) {
 			Brand brand = brandRepository.save(new Brand(null, "marca" + i));
 			Model model = modelRepository.save(new Model(null, "modelo" + i));
 			Person person = personRepository.save(new Person(null, "usuario" + i, "lamrini" + i, "usuario" + i + "@gmail.com", "11111"));
 			truckRepository.save(new Truck(null, brand, model, 150000, person));
 		}
 	}
+	
+	
 	
 	@Test
     @DirtiesContext

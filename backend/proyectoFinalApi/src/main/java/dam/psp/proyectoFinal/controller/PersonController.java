@@ -41,7 +41,7 @@ public class PersonController {
 	}
 	
 	@PutMapping("/{id}")
-	private ResponseEntity<Person> updatePerson(@PathVariable int id, @RequestBody Person personUpdate) {
+	private ResponseEntity<Void> updatePerson(@PathVariable int id, @RequestBody Person personUpdate) {
 		Optional<Person> optPerson = personRepository.findById(id);
 		if(!optPerson.isPresent()) {
 			return ResponseEntity.notFound().build();
@@ -56,7 +56,7 @@ public class PersonController {
 		
 		personRepository.save(person);
 		
-		return ResponseEntity.ok(person);
+		return ResponseEntity.noContent().build();
 	}
 	
 	private static String firstLetterTolowerCase(String mail) {

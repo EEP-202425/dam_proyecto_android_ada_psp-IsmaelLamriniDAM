@@ -1,6 +1,7 @@
 package dam.psp.proyectoFinal.tablas;
 
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
@@ -18,11 +19,11 @@ public class Truck {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.LAZY , cascade = CascadeType.REMOVE)
 	@NotNull(message = "Campo Vacio")
 	private Brand brand;
 	
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
 	@NotNull(message = "Campo Vacio")
 	private Model model;
 	

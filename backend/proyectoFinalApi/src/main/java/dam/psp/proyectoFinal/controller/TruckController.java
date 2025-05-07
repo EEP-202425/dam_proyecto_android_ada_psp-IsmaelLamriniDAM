@@ -63,11 +63,9 @@ public class TruckController {
 	@PostMapping
 	private ResponseEntity<Truck> createCamion(@RequestBody Truck newTruck, UriComponentsBuilder ucb, Principal principal) {
 		
-		Optional<Brand> optbrand = Optional.ofNullable(brandRepository.findByName(newTruck.getBrand().getName().toLowerCase()));
-		Brand brand = optbrand.isPresent() ? optbrand.get() : brandRepository.save(new Brand(null, newTruck.getBrand().getName().toLowerCase()));
+		Brand brand = brandRepository.save(new Brand(null, newTruck.getBrand().getName().toLowerCase()));
 		
-		Optional<Model> optModel = Optional.ofNullable(modelRepository.findByName(newTruck.getModel().getName().toLowerCase()));
-		Model model = optModel.isPresent() ? optModel.get() : modelRepository.save(new Model(null, newTruck.getModel().getName().toLowerCase()));
+		Model model = modelRepository.save(new Model(null, newTruck.getModel().getName().toLowerCase()));
 		
 		Optional<Person> optPerson = Optional.ofNullable(personRepository.findByName(newTruck.getOwner().getName().toLowerCase()));
 		if(!optPerson.isPresent()) {

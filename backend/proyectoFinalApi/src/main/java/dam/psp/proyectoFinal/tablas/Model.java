@@ -6,6 +6,7 @@ import java.util.Set;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import jakarta.persistence.CascadeType;
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -24,6 +25,7 @@ public class Model {
 	private Integer id;
 	
 	@NotBlank(message = "Campo Vacio")
+	@Column(unique = false)
 	private String name;
 	
 	@OneToMany(mappedBy = "model",
