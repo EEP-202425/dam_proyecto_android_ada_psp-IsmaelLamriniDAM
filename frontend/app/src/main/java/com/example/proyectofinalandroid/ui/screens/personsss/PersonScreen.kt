@@ -94,7 +94,7 @@ fun RegisterSuccessful(modifier: Modifier) {
         Image(
             modifier = modifier.size(400.dp),
             painter = painterResource(R.drawable.ic_check_circle),
-            contentDescription = stringResource(R.string.register)
+            contentDescription = stringResource(R.string.registerSuccess)
         )
     }
 }

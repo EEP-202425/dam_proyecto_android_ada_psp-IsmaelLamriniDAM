@@ -1,5 +1,6 @@
 package com.example.proyectofinalandroid.ui.navegation
 
+import androidx.annotation.StringRes
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
@@ -38,24 +39,25 @@ import com.example.proyectofinalandroid.ui.screens.personsss.PersonScreen
 import com.example.proyectofinalandroid.ui.screens.viewmodel.PersonUiState
 import com.example.proyectofinalandroid.ui.screens.viewmodel.PersonViewModel
 
-enum class ScreenAppTruck() {
-    Start,
-    Register,
-    Login,
-    List,
-    Details,
-    Create,
-    Delete
+enum class ScreenAppTruck(@StringRes val title: Int) {
+    Start(title = R.string.app_name),
+    Register(title = R.string.register),
+    Login(title = R.string.login),
+    List(title = R.string.list),
+    Details(title = R.string.details),
+    Create(title = R.string.create),
+    Delete(title = R.string.delete)
 }
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun TruckAppBar(
+    currentScreen: ScreenAppTruck,
     canNavigateBack: Boolean,
     navigateUp: () -> Unit
 ){
     TopAppBar(
-        title = { Text(stringResource(R.string.app_name)) },
+        title = { Text(stringResource(currentScreen.title)) },
         colors = TopAppBarDefaults.mediumTopAppBarColors(
             containerColor = MaterialTheme.colorScheme.primaryContainer
         ),
@@ -84,9 +86,14 @@ fun TruckApp() {
     val route = backStack?.destination?.route
     val isList = route == ScreenAppTruck.List.name
 
+    val currentScreen = ScreenAppTruck.valueOf(
+        route?: ScreenAppTruck.Start.name
+    )
+
     Scaffold (
         topBar = {
             TruckAppBar(
+                currentScreen = currentScreen,
                 canNavigateBack = canPop,
                 navigateUp = {navController.popBackStack()}
             )
