@@ -9,7 +9,7 @@
     <string name="register">Pantalla Registro</string>
     <string name="login">Pantalla Login</string>
     <string name="list">Camiones</string>
-    <string name="details">Detalles</string>
+    <string name="details">Detalless</string>
     <string name="create">Venta</string>
     <string name="delete">Compra</string>
 </resources>

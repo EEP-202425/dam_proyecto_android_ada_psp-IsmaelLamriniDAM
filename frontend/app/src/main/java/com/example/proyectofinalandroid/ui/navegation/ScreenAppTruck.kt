@@ -44,7 +44,7 @@ enum class ScreenAppTruck(@StringRes val title: Int) {
     Register(title = R.string.register),
     Login(title = R.string.login),
     List(title = R.string.list),
-    Details(title = R.string.details),
+    Details(R.string.details),
     Create(title = R.string.create),
     Delete(title = R.string.delete)
 }
@@ -178,7 +178,6 @@ fun TruckApp() {
                     truckUiState   = uiState,
                     onDeleteClick  = { vm.deleteTruck(id) },
                     onDeleteClose  = {
-                        vm.getTrucks()
                         navController.popBackStack()
                     },
                     onTruckClick   = {},   // no usado aquí

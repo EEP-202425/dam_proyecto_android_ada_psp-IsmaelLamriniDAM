@@ -6,6 +6,7 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -27,10 +28,15 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.proyectofinalandroid.R
+import com.example.proyectofinalandroid.network.Brand
+import com.example.proyectofinalandroid.network.Model
+import com.example.proyectofinalandroid.network.Person
 import com.example.proyectofinalandroid.network.Truck
 import com.example.proyectofinalandroid.ui.screens.viewmodel.TruckUiState
+import com.example.proyectofinalandroid.ui.theme.ProyectoFinalAndroidTheme
 
 @Composable
 fun TruckScreen(
@@ -138,7 +144,7 @@ fun CreatedScreen(
 @Composable
 fun showDetails(
     truck: Truck,
-    onDeleteClose: () -> Unit = {},
+    onDeleteClose: () -> Unit,
     onDeleteClick: () -> Unit,
     modifier: Modifier
 ) {
@@ -157,12 +163,18 @@ fun showDetails(
         Text(text = "Modelo: ${truck.model.name}")
         Text(text = "Precio: ${truck.preci}")
         Text(text = "Dueño: ${truck.owner.name}, ${truck.owner.lastName}, ${truck.owner.mail}")
-
         Button(
             onClick = onDeleteClick,
             modifier = Modifier.fillMaxWidth()
         ) {
             Text("Comprar")
+        }
+
+        Button(
+            onClick = onDeleteClose,
+            modifier = Modifier.fillMaxWidth()
+        ) {
+            Text("Volver")
         }
     }
 }
@@ -207,4 +219,25 @@ fun DeleteSucces(
         }
     }
 }
+
+@Preview(showBackground = true)
+@Composable
+fun GreetingPreview() {
+    ProyectoFinalAndroidTheme {
+        val newTruck = Truck(
+            id    = 0,
+            brand = Brand(0, "caca"),
+            model = Model(0, "caca"),
+            preci = 0.0,
+            owner = Person(name = "caca")
+        )
+        showDetails(
+            truck = newTruck,
+            onDeleteClick =  {},
+            onDeleteClose = {},
+            modifier = Modifier,
+        )
+    }
+}
+
 

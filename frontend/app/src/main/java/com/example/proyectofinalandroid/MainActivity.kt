@@ -19,9 +19,14 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.example.proyectofinalandroid.network.Brand
+import com.example.proyectofinalandroid.network.Model
+import com.example.proyectofinalandroid.network.Person
+import com.example.proyectofinalandroid.network.Truck
 import com.example.proyectofinalandroid.ui.navegation.TruckApp
 import com.example.proyectofinalandroid.ui.screens.login.LoginScreen
 import com.example.proyectofinalandroid.ui.screens.personsss.RegisterSuccessful
+import com.example.proyectofinalandroid.ui.screens.trucksss.showDetails
 import com.example.proyectofinalandroid.ui.theme.ProyectoFinalAndroidTheme
 import kotlin.coroutines.coroutineContext
 
@@ -45,8 +50,18 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun GreetingPreview() {
     ProyectoFinalAndroidTheme {
-        RegisterSuccessful(
-            modifier = Modifier.fillMaxSize(),
+        val newTruck = Truck(
+            id    = 0,
+            brand = Brand(0, "caca"),
+            model = Model(0, "caca"),
+            preci = 0.0,
+            owner = Person(name = "caca")
+        )
+        showDetails(
+            truck = newTruck,
+            onDeleteClick =  {},
+            onDeleteClose = {},
+            modifier = Modifier,
         )
     }
 }
