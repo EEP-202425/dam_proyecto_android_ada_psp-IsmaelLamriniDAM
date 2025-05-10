@@ -5,6 +5,7 @@ import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.AddCircle
 import androidx.compose.material.icons.filled.Clear
 import androidx.compose.material.icons.filled.Create
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -39,25 +40,23 @@ import com.example.proyectofinalandroid.ui.screens.personsss.PersonScreen
 import com.example.proyectofinalandroid.ui.screens.viewmodel.PersonUiState
 import com.example.proyectofinalandroid.ui.screens.viewmodel.PersonViewModel
 
-enum class ScreenAppTruck(@StringRes val title: Int) {
-    Start(title = R.string.app_name),
-    Register(title = R.string.register),
-    Login(title = R.string.login),
-    List(title = R.string.list),
-    Details(R.string.details),
-    Create(title = R.string.create),
-    Delete(title = R.string.delete)
+enum class ScreenAppTruck() {
+    Start(),
+    Register(),
+    Login(),
+    List(),
+    Details(),
+    Create(),
 }
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun TruckAppBar(
-    currentScreen: ScreenAppTruck,
     canNavigateBack: Boolean,
     navigateUp: () -> Unit
 ){
     TopAppBar(
-        title = { Text(stringResource(currentScreen.title)) },
+        title = { Text(stringResource(R.string.app_name)) },
         colors = TopAppBarDefaults.mediumTopAppBarColors(
             containerColor = MaterialTheme.colorScheme.primaryContainer
         ),
@@ -86,14 +85,9 @@ fun TruckApp() {
     val route = backStack?.destination?.route
     val isList = route == ScreenAppTruck.List.name
 
-    val currentScreen = ScreenAppTruck.valueOf(
-        route?: ScreenAppTruck.Start.name
-    )
-
     Scaffold (
         topBar = {
             TruckAppBar(
-                currentScreen = currentScreen,
                 canNavigateBack = canPop,
                 navigateUp = {navController.popBackStack()}
             )
@@ -103,7 +97,7 @@ fun TruckApp() {
                 FloatingActionButton(onClick = {
                     navController.navigate(ScreenAppTruck.Create.name)
                 }) {
-                    Icon(Icons.Default.Create, contentDescription = "Vender camión")
+                    Icon(Icons.Default.AddCircle, contentDescription = "Vender camión")
                 }
             }
         }
@@ -178,6 +172,7 @@ fun TruckApp() {
                     truckUiState   = uiState,
                     onDeleteClick  = { vm.deleteTruck(id) },
                     onDeleteClose  = {
+                        vm.getTrucks()
                         navController.popBackStack()
                     },
                     onTruckClick   = {},   // no usado aquí
