@@ -49,7 +49,7 @@ fun LoginScreen(
 
         Button(
             onClick = {
-                if (nameUser.isBlank() || passwordUser.isBlank()) {
+                if (nameUser.isBlank() || passwordUser.isBlank() || passwordUser.length <= 4) {
                     return@Button
                 } else {
                     onLoginClick()
