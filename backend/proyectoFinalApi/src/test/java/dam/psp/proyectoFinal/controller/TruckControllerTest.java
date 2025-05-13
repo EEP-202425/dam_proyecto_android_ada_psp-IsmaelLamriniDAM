@@ -79,7 +79,21 @@ class TruckControllerTest {
 		
 		
 		assertThat(truckCreat).isNotNull();
+
 		assertThat(truckCreat.getBrand().getName()).isEqualTo("renault");
+		assertThat(truckCreat.getModel().getName()).isEqualTo("master");
+		assertThat(truckCreat.getPreci()).isEqualTo(150000.0);
+		assertThat(truckCreat.getOwner().getName()).isEqualTo("isma");
+		
+	}
+	
+	@Test
+	void shouldReturnAllTrucksWhenListIsRequested() {
+	    ResponseEntity<Truck[]> response = restTemplate.getForEntity("/camiones", Truck[].class);
+
+	    assertThat(response.getStatusCode()).isEqualTo(HttpStatus.OK);
+	    Truck[] trucks = response.getBody();
+	    assertThat(trucks).isNotNull();
 	}
 	
 	@Test

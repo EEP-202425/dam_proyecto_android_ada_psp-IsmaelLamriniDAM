@@ -1815,3 +1815,22 @@ org.eclipse.core.runtime.CoreException: Could not resolve artifact org.webjars:s
 2025-05-07 20:33:57,981 [Worker-71: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\test\resources to target\test-classes
 2025-05-10 21:58:00,744 [Worker-2: Building] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: dam.psp:proyectoFinal:0.0.1-SNAPSHOT @ C:\Users\Usuario\dam_proyecto_android_ada_psp-IsmaelLamriniDAM\dam_proyecto_android_ada_psp-IsmaelLamriniDAM\backend\proyectoFinalApi\pom.xml.
 2025-05-10 21:58:01,032 [Worker-11: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is out-of-date. Trying to update.
+2025-05-13 13:57:56,739 [Worker-7: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is out-of-date. Trying to update.
+2025-05-13 13:58:33,063 [Worker-6: Building] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: dam.psp:proyectoFinal:0.0.1-SNAPSHOT @ C:\Users\ismae\dam_proyecto_android_ada_psp-IsmaelLamriniDAM\backend\proyectoFinalApi\pom.xml.
+2025-05-13 18:28:50,057 [Worker-6: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2025-05-13 18:37:12,521 [Worker-5: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2025-05-13 19:18:13,743 [Worker-31: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-05-13 19:18:13,976 [Worker-31: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2025-05-13 19:18:14,090 [Worker-31: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\ismae\dam_proyecto_android_ada_psp-IsmaelLamriniDAM\backend\proyectoFinalApi\src\test\resources
+2025-05-13 19:18:47,360 [Worker-31: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2025-05-13 19:18:47,371 [Worker-31: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2025-05-13 19:18:47,387 [Worker-31: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\ismae\dam_proyecto_android_ada_psp-IsmaelLamriniDAM\backend\proyectoFinalApi\src\test\resources
+2025-05-13 19:19:20,553 [Worker-29: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2025-05-13 19:19:20,557 [Worker-29: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2025-05-13 19:19:20,562 [Worker-29: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\ismae\dam_proyecto_android_ada_psp-IsmaelLamriniDAM\backend\proyectoFinalApi\src\test\resources
+2025-05-13 19:24:26,296 [Worker-35: Launching TruckControllerTest] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2025-05-13 19:24:26,298 [Worker-35: Launching TruckControllerTest] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2025-05-13 19:24:26,305 [Worker-35: Launching TruckControllerTest] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\ismae\dam_proyecto_android_ada_psp-IsmaelLamriniDAM\backend\proyectoFinalApi\src\test\resources
+2025-05-13 19:28:31,589 [Worker-42: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2025-05-13 19:28:31,591 [Worker-42: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2025-05-13 19:28:31,605 [Worker-42: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\ismae\dam_proyecto_android_ada_psp-IsmaelLamriniDAM\backend\proyectoFinalApi\src\test\resources

@@ -70,9 +70,8 @@ class TruckViewModel : ViewModel() {
     fun getTrucks() {
         viewModelScope.launch {
             try {
-                val list = withContext(Dispatchers.IO) {
-                    retrofitService.getTrucks()
-                }
+                val list = retrofitService.getTrucks()
+
                 trucksUiState = TruckUiState.Success(list)
            } catch (e : IOException) {
                 trucksUiState = TruckUiState.Error(e.message)
