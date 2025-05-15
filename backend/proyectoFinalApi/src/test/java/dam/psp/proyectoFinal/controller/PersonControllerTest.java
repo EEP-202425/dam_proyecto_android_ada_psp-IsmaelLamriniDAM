@@ -1,12 +1,8 @@
 package dam.psp.proyectoFinal.controller;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.jupiter.api.Assertions.*;
 
-import java.net.http.HttpRequest;
-import java.util.Optional;
-
-import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
 import org.junit.jupiter.api.TestInstance.Lifecycle;
@@ -19,10 +15,10 @@ import org.springframework.http.HttpMethod;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.test.annotation.DirtiesContext;
-import dam.psp.proyectoFinal.tablas.Person;
-import dam.psp.proyectoFinal.repository.PersonRepository;
 
-@TestInstance(Lifecycle.PER_CLASS)
+import dam.psp.proyectoFinal.repository.PersonRepository;
+import dam.psp.proyectoFinal.tablas.Person;
+
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.ANY)
 class PersonControllerTest {
@@ -35,7 +31,7 @@ class PersonControllerTest {
 	@Autowired
 	private PersonRepository personRepository;
 
-	@BeforeAll
+	@BeforeEach
 	void createPerson() {
 		for(int i = 0; i < LIMITE; i++) {
 			personRepository.save(new Person(null, "usuario" + i, "apellido" + i, "usuario" + i + "@gmail.com", "1234"));
@@ -49,6 +45,14 @@ class PersonControllerTest {
 		HttpEntity<Person> request = new HttpEntity<>(personUpdate);
 		ResponseEntity<Void> response = restTemplate.exchange("/personas/1", HttpMethod.PUT, request , Void.class);
 		assertThat(response.getStatusCode()).isEqualTo(HttpStatus.NO_CONTENT);
+	}
+	@Test
+	@DirtiesContext
+	void shouldNotUpdateAnExistingPerson() {
+		Person UnknowPerson = new Person(null, "ismaaa", "lemaaa", "ismaaa@gmail.com", "43210");
+		HttpEntity<Person> request = new HttpEntity<>(UnknowPerson);
+		ResponseEntity<Void> response = restTemplate.exchange("/personas/1000", HttpMethod.PUT, request , Void.class);
+		assertThat(response.getStatusCode()).isEqualTo(HttpStatus.NOT_FOUND);
 	}
 
 }
