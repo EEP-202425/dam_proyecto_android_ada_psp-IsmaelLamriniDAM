@@ -1834,3 +1834,24 @@ org.eclipse.core.runtime.CoreException: Could not resolve artifact org.webjars:s
 2025-05-13 19:28:31,589 [Worker-42: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
 2025-05-13 19:28:31,591 [Worker-42: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
 2025-05-13 19:28:31,605 [Worker-42: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\ismae\dam_proyecto_android_ada_psp-IsmaelLamriniDAM\backend\proyectoFinalApi\src\test\resources
+2025-05-15 11:22:17,573 [Worker-2: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is out-of-date. Trying to update.
+2025-05-15 11:22:26,069 [Worker-15: Importing Maven projects] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: dam.psp:proyectoFinal:0.0.1-SNAPSHOT @ C:\Users\Usuario\dam_proyecto_android_ada_psp-IsmaelLamriniDAM\dam_proyecto_android_ada_psp-IsmaelLamriniDAM\backend\proyectoFinalApi\pom.xml.
+2025-05-15 11:22:27,803 [Worker-15: Importing Maven projects] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /proyectoFinalApi/src/main/java
+2025-05-15 11:22:27,804 [Worker-15: Importing Maven projects] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding resource folder /proyectoFinalApi/src/main/resources
+2025-05-15 11:22:27,805 [Worker-15: Importing Maven projects] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding resource folder /proyectoFinalApi/src/main/resources
+2025-05-15 11:22:27,806 [Worker-15: Importing Maven projects] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /proyectoFinalApi/src/test/java
+2025-05-15 11:22:27,807 [Worker-15: Importing Maven projects] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding resource folder /proyectoFinalApi/src/test/resources
+2025-05-15 11:22:28,000 [Worker-15: Importing Maven projects] INFO  o.e.m.jdt.internal.UnitTestSupport - Reset launch configuration name: PersonControllerTest
+2025-05-15 11:22:28,000 [Worker-15: Importing Maven projects] INFO  o.e.m.jdt.internal.UnitTestSupport - Updating PersonControllerTest from maven configuration
+2025-05-15 11:22:28,496 [Worker-15: Importing Maven projects] INFO  o.e.m.jdt.internal.UnitTestSupport - Reset launch configuration name: TruckControllerTest
+2025-05-15 11:22:28,496 [Worker-15: Importing Maven projects] INFO  o.e.m.jdt.internal.UnitTestSupport - Updating TruckControllerTest from maven configuration
+2025-05-15 11:22:28,530 [Worker-15: Importing Maven projects] INFO  o.e.m.c.i.p.ProjectConfigurationManager - Imported and configured 1 project(s) in 3 sec
+2025-05-15 11:22:29,607 [Worker-20: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-05-15 11:22:29,622 [Worker-20: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2025-05-15 11:22:29,628 [Worker-20: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\test\resources to target\test-classes
+2025-05-15 12:34:46,672 [Worker-42: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2025-05-15 12:34:46,673 [Worker-42: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2025-05-15 12:34:46,676 [Worker-42: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\test\resources to target\test-classes
+2025-05-15 12:34:51,269 [Worker-41: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2025-05-15 12:34:51,270 [Worker-41: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2025-05-15 12:34:51,273 [Worker-41: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\test\resources to target\test-classes
