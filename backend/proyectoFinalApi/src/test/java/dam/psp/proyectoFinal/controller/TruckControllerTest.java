@@ -88,6 +88,17 @@ class TruckControllerTest {
 	}
 	
 	@Test
+	void shouldNotCreateANewTruck() {
+		Brand brand = brandRepository.save(new Brand(null, "renault"));
+		Model model = modelRepository.save(new Model(null, "master"));
+		Person person = new Person(null, "isma", "lamrini", "isma@gmail.com", "1212");
+		Truck truckCreat = new Truck(null, brand, model, 150000, person);
+		
+		ResponseEntity<Truck> createResponse = restTemplate.postForEntity("/camiones", truckCreat , Truck.class); 
+		assertThat(createResponse.getStatusCode()).isEqualTo(HttpStatus.NOT_FOUND); // NO ENCUENTRA A ESE USUARIO EN LA BBDD.
+	}
+	
+	@Test
 	void shouldReturnAllTrucksWhenListIsRequested() {
 	    ResponseEntity<Truck[]> response = restTemplate.getForEntity("/camiones", Truck[].class);
 
