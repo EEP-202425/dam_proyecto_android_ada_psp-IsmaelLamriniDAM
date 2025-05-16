@@ -60,18 +60,24 @@ dependencies {
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
 
-    implementation ("androidx.navigation:navigation-compose:2.5.3")
-    implementation ("androidx.lifecycle:lifecycle-viewmodel-compose:2.6.1")
-    implementation ("com.squareup.retrofit2:converter-gson:2.9.0")
+// Librería de navegación en Jetpack Compose: gestiona rutas y pantallas de forma declarativa
+    implementation("androidx.navigation:navigation-compose:2.5.3")
 
-    // Retrofit
+// Integra ViewModels con Compose: conecta el ciclo de vida y estado de la UI a tu ViewModel
+    implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.6.1")
+
+// Convierte JSON a objetos Kotlin usando Gson en Retrofit
+    implementation("com.squareup.retrofit2:converter-gson:2.9.0")
+
+// Cliente REST HTTP: define endpoints y llama a APIs de forma sencilla
     implementation("com.squareup.retrofit2:retrofit:2.9.0")
 
-    // Retrofit with Kotlin serialization Converter
+// Adaptador Retrofit para usar kotlinx-serialization en lugar de Gson
     implementation("com.jakewharton.retrofit:retrofit2-kotlinx-serialization-converter:1.0.0")
+
+// Cliente HTTP eficiente y configurable: gestiona peticiones, interceptores, timeouts…
     implementation("com.squareup.okhttp3:okhttp:4.11.0")
 
-
-    // Kotlin serialization
+// Librería de serialización JSON de Kotlin: parsea y genera JSON sin usar reflección
     implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.5.1")
 }

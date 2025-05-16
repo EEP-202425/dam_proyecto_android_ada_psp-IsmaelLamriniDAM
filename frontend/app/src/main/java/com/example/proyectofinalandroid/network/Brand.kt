@@ -5,6 +5,5 @@ import kotlinx.serialization.Serializable
 @Serializable
 data class Brand (
     val id : Int? = null,
-    val name : String,
-){
-}
+    val name : String
+)

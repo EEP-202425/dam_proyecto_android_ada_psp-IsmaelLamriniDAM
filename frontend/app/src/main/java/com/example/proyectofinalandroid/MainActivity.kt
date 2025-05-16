@@ -35,33 +35,11 @@ import kotlin.coroutines.coroutineContext
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-
         enableEdgeToEdge()
         setContent {
             ProyectoFinalAndroidTheme {
                 TruckApp()
             }
         }
-    }
-}
-
-@Preview(showBackground = true)
-@Composable
-fun GreetingPreview() {
-    ProyectoFinalAndroidTheme {
-        val newTruck = Truck(
-            id    = 0,
-            brand = Brand(0, "caca"),
-            model = Model(0, "caca"),
-            preci = 0.0,
-            owner = Person(name = "caca")
-        )
-        showDetails(
-            truck = newTruck,
-            onDeleteClick =  {},
-            onDeleteClose = {},
-            modifier = Modifier,
-        )
     }
 }
