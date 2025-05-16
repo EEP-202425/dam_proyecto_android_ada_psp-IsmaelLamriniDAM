@@ -3,6 +3,7 @@ package dam.psp.proyectoFinal.controller;
 import static org.assertj.core.api.Assertions.assertThat;
 
 import java.net.URI;
+import org.springframework.http.HttpHeaders;
 
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
@@ -12,6 +13,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.web.client.TestRestTemplate;
+import org.springframework.http.HttpEntity;
+
+import org.springframework.http.HttpMethod;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.test.annotation.DirtiesContext;
@@ -99,9 +103,26 @@ class TruckControllerTest {
 	}
 	
 	@Test
+	@DirtiesContext
+	void shouldDeleteATruck() {
+		Brand brand = brandRepository.save(new Brand(null, "renault"));
+		Model model = modelRepository.save(new Model(null, "master"));
+		Person person = personRepository.save(new Person(null, "isma", "lamrini", "isma@gmail.com", "1212"));
+		Truck truckCreat = truckRepository.save(new Truck(null, brand, model, 150000, person));
+
+		HttpHeaders headers = new HttpHeaders();
+		HttpEntity<Void> requestEntity = new HttpEntity<>(null, headers);
+
+		ResponseEntity<Void> response = restTemplate.exchange("/camiones/{id}", HttpMethod.DELETE, requestEntity,
+				Void.class, truckCreat.getId());
+		assertThat(response.getStatusCode()).isEqualTo(HttpStatus.NO_CONTENT);
+		assertThat(truckRepository.findById(truckCreat.getId())).isEmpty();
+	}
+	
+	@Test
 	void shouldReturnAllTrucksWhenListIsRequested() {
 	    ResponseEntity<Truck[]> response = restTemplate.getForEntity("/camiones", Truck[].class);
-
+	    
 	    assertThat(response.getStatusCode()).isEqualTo(HttpStatus.OK);
 	    Truck[] trucks = response.getBody();
 	    assertThat(trucks).isNotNull();
