@@ -3,6 +3,8 @@ package dam.psp.proyectoFinal.controller;
 import static org.assertj.core.api.Assertions.assertThat;
 
 import java.net.URI;
+import java.util.Optional;
+
 import org.springframework.http.HttpHeaders;
 
 import org.junit.jupiter.api.BeforeAll;
@@ -64,8 +66,7 @@ class TruckControllerTest {
 		}
 	}
 	
-	
-	
+	// TEST CREACIÓN DE CAMIONES.
 	@Test
     @DirtiesContext
     void shouldCreateANewTruck() {
@@ -102,6 +103,7 @@ class TruckControllerTest {
 		assertThat(createResponse.getStatusCode()).isEqualTo(HttpStatus.NOT_FOUND); // NO ENCUENTRA A ESE USUARIO EN LA BBDD.
 	}
 	
+	// TEST ELEMINACIÓN DE CAMIONES.
 	@Test
 	@DirtiesContext
 	void shouldDeleteATruck() {
@@ -109,7 +111,7 @@ class TruckControllerTest {
 		Model model = modelRepository.save(new Model(null, "master"));
 		Person person = personRepository.save(new Person(null, "isma", "lamrini", "isma@gmail.com", "1212"));
 		Truck truckCreat = truckRepository.save(new Truck(null, brand, model, 150000, person));
-
+		
 		HttpHeaders headers = new HttpHeaders();
 		HttpEntity<Void> requestEntity = new HttpEntity<>(null, headers);
 
@@ -120,6 +122,18 @@ class TruckControllerTest {
 	}
 	
 	@Test
+	@DirtiesContext
+	void shouldNotDeleteTruck() {
+		HttpHeaders headers = new HttpHeaders();
+		HttpEntity<Void> requestEntity = new HttpEntity<>(null, headers);
+
+		ResponseEntity<Void> response = restTemplate.exchange("/camiones/1000", HttpMethod.DELETE, requestEntity,
+				Void.class);
+		assertThat(response.getStatusCode()).isEqualTo(HttpStatus.NOT_FOUND);
+	}
+	
+	// TEST RETORNO DE LISTA DE CAMIONES.
+	@Test
 	void shouldReturnAllTrucksWhenListIsRequested() {
 	    ResponseEntity<Truck[]> response = restTemplate.getForEntity("/camiones", Truck[].class);
 	    
@@ -128,6 +142,7 @@ class TruckControllerTest {
 	    assertThat(trucks).isNotNull();
 	}
 	
+	// TEST RETORNO DE CAMIONES POR ID.
 	@Test
 	void shouldReturnTruckOfTheOrderedId() {
 		ResponseEntity<Truck> response = restTemplate.getForEntity("/camiones/1", Truck.class); 

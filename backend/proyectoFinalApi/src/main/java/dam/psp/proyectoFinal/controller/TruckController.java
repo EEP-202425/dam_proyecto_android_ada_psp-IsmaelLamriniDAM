@@ -59,7 +59,6 @@ public class TruckController {
 		return ResponseEntity.noContent().build();
 	}
 	
-	// GUARDA EL NUEVO OBJETO CAMIÓN EN LA BBDD Y CREA SU URL.
 	@PostMapping
 	private ResponseEntity<Truck> createCamion(@RequestBody Truck newTruck, UriComponentsBuilder ucb, Principal principal) {
 		
@@ -81,15 +80,13 @@ public class TruckController {
 	            .body(truckSave);
 	}
 	
-	// DEVUELVE TODOS LOS CAMIONES REGISTRADOS.
 	@GetMapping
 	private ResponseEntity<List<Truck>> getAll(Principal principal, Pageable pageable) {
-		Page<Truck> truck = truckRepository.findAll
+		Page<Truck> truck = truckRepository.findAll 
 				(PageRequest.of(pageable.getPageNumber(), pageable.getPageSize(),pageable.getSortOr(Sort.by(Sort.Direction.DESC, "preci"))));
 		return ResponseEntity.ok(truck.getContent());
 	}
 	
-	// DEVUELVO EL OBJETO COMPLETO DEL ID RECIBIDO.
 	@GetMapping("/{id}") 
 	private ResponseEntity<Truck> findById(@PathVariable int id, Principal principal) {
 		Optional<Truck> myTruck = truckRepository.findById(id);
@@ -99,7 +96,5 @@ public class TruckController {
 			return ResponseEntity.notFound().build();
 		}
 	}
-	
-	
 	
 }

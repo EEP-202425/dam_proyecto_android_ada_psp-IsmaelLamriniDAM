@@ -37,7 +37,8 @@ class PersonControllerTest {
 			personRepository.save(new Person(null, "usuario" + i, "apellido" + i, "usuario" + i + "@gmail.com", "1234"));
 		}
 	}
-
+	
+	// TEST ACTUALIZACIÓN DE PERSONAS.
 	@Test
 	@DirtiesContext
 	void shouldUpdateAnExistingPerson() {
@@ -46,6 +47,7 @@ class PersonControllerTest {
 		ResponseEntity<Void> response = restTemplate.exchange("/personas/1", HttpMethod.PUT, request , Void.class);
 		assertThat(response.getStatusCode()).isEqualTo(HttpStatus.NO_CONTENT);
 	}
+	
 	@Test
 	@DirtiesContext
 	void shouldNotUpdateAnExistingPerson() {
