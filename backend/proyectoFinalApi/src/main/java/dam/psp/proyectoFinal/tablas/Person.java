@@ -3,8 +3,6 @@ package dam.psp.proyectoFinal.tablas;
 import java.util.HashSet;
 import java.util.Set;
 
-import org.hibernate.validator.constraints.UniqueElements;
-
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import jakarta.persistence.CascadeType;
@@ -18,14 +16,11 @@ import jakarta.persistence.Table;
 import jakarta.persistence.UniqueConstraint;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
 
 @Entity
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
-@Table(name = "personas",
-	uniqueConstraints = @UniqueConstraint(columnNames = "name")
-)
+@Table(name = "personas", uniqueConstraints = @UniqueConstraint(columnNames = "name"))
 public class Person {
 	
 	@Id
@@ -47,8 +42,7 @@ public class Person {
 	@NotBlank(message = "Campo Vacio")
 	private String password;
 	
-	@OneToMany(mappedBy = "owner",
-			cascade = CascadeType.ALL)
+	@OneToMany(mappedBy = "owner", cascade = CascadeType.ALL)
 	private Set<Truck>  trucks= new HashSet<Truck>();
 	
 	public Person() {

@@ -1,11 +1,8 @@
 package dam.psp.proyectoFinal.controller;
 
 import java.net.URI;
-import java.net.http.HttpRequest;
-import java.security.Principal;
 import java.util.Optional;
 
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -30,7 +27,7 @@ public class PersonController {
 	}
 	
 	@PostMapping
-	private ResponseEntity<Void> CreatePerson(@Valid @RequestBody Person person, UriComponentsBuilder ucb, Principal principal) {
+	private ResponseEntity<Void> CreatePerson(@Valid @RequestBody Person person, UriComponentsBuilder ucb) {
 		
 		String newMail = firstLetterTolowerCase(person.getMail());
 		
@@ -49,7 +46,7 @@ public class PersonController {
 		
 		Person person = optPerson.get();
 		
-		person.setName(personUpdate.getName().toLowerCase());
+		person.setName(personUpdate.getName());
 		person.setLastName(personUpdate.getLastName().toLowerCase());
 		person.setMail(personUpdate.getMail().toLowerCase());
 		person.setPassword(personUpdate.getPassword());
@@ -64,6 +61,5 @@ public class PersonController {
 		String newMail = firstLetter + mail.substring(1);
 		return newMail;
 	}
-	
 	
 }

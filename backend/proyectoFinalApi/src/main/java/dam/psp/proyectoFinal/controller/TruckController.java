@@ -1,7 +1,6 @@
 package dam.psp.proyectoFinal.controller;
 
 import java.net.URI;
-import java.security.Principal;
 import java.util.List;
 import java.util.Optional;
 
@@ -60,7 +59,7 @@ public class TruckController {
 	}
 	
 	@PostMapping
-	private ResponseEntity<Truck> createCamion(@RequestBody Truck newTruck, UriComponentsBuilder ucb, Principal principal) {
+	private ResponseEntity<Truck> createTruck(@RequestBody Truck newTruck, UriComponentsBuilder ucb) {
 		
 		Brand brand = brandRepository.save(new Brand(null, newTruck.getBrand().getName().toLowerCase()));
 		
@@ -75,20 +74,19 @@ public class TruckController {
 		Truck createTruck = new Truck(null ,brand, model, newTruck.getPreci(), owner);
 		Truck truckSave = truckRepository.save(createTruck);
 		URI newURL = ucb.path("camiones/{id}").buildAndExpand(truckSave.getId()).toUri();
-		return ResponseEntity
-	            .created(newURL)
-	            .body(truckSave);
+		
+		return ResponseEntity.created(newURL).body(truckSave);
 	}
 	
 	@GetMapping
-	private ResponseEntity<List<Truck>> getAll(Principal principal, Pageable pageable) {
+	private ResponseEntity<List<Truck>> getAll(Pageable pageable) {
 		Page<Truck> truck = truckRepository.findAll 
 				(PageRequest.of(pageable.getPageNumber(), pageable.getPageSize(),pageable.getSortOr(Sort.by(Sort.Direction.DESC, "preci"))));
 		return ResponseEntity.ok(truck.getContent());
 	}
 	
 	@GetMapping("/{id}") 
-	private ResponseEntity<Truck> findById(@PathVariable int id, Principal principal) {
+	private ResponseEntity<Truck> findById(@PathVariable int id) {
 		Optional<Truck> myTruck = truckRepository.findById(id);
 		if (myTruck.isPresent()) {
 			return ResponseEntity.ok(myTruck.get());

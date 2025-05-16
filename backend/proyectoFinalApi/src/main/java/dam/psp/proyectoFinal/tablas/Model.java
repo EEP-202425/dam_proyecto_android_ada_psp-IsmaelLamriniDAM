@@ -28,8 +28,7 @@ public class Model {
 	@Column(unique = false)
 	private String name;
 	
-	@OneToMany(mappedBy = "model",
-			cascade = CascadeType.ALL)
+	@OneToMany(mappedBy = "model",cascade = CascadeType.ALL)
 	private Set<Truck> trucks = new HashSet<Truck>();
 	
 	public Model() {

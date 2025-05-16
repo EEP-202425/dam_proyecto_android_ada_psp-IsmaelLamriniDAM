@@ -3,9 +3,6 @@ package dam.psp.proyectoFinal.controller;
 import static org.assertj.core.api.Assertions.assertThat;
 
 import java.net.URI;
-import java.util.Optional;
-
-import org.springframework.http.HttpHeaders;
 
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
@@ -16,14 +13,11 @@ import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabas
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.http.HttpEntity;
-
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.test.annotation.DirtiesContext;
-
-import com.jayway.jsonpath.DocumentContext;
-import com.jayway.jsonpath.JsonPath;
 
 import dam.psp.proyectoFinal.repository.BrandRepository;
 import dam.psp.proyectoFinal.repository.ModelRepository;
@@ -96,7 +90,7 @@ class TruckControllerTest {
 	void shouldNotCreateANewTruck() {
 		Brand brand = brandRepository.save(new Brand(null, "renault"));
 		Model model = modelRepository.save(new Model(null, "master"));
-		Person person = new Person(null, "isma", "lamrini", "isma@gmail.com", "1212");
+		Person person = new Person(null, "isma", "lamrini", "isma@gmail.com", "1212"); // PERSONA NO GUARDADA EN LA BBDD.
 		Truck truckCreat = new Truck(null, brand, model, 150000, person);
 		
 		ResponseEntity<Truck> createResponse = restTemplate.postForEntity("/camiones", truckCreat , Truck.class); 

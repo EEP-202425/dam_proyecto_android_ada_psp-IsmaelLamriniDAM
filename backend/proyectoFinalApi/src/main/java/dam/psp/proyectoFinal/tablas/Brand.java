@@ -14,7 +14,6 @@ import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotNull;
 
 @Entity
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
@@ -29,8 +28,7 @@ public class Brand {
 	@NotBlank(message = "Campo Vacio")
 	private String name;
 	
-	@OneToMany(mappedBy = "brand",
-			cascade = CascadeType.ALL)
+	@OneToMany(mappedBy = "brand",cascade = CascadeType.ALL)
 	private Set<Truck> trucks = new HashSet<Truck>();
 	
 	public Brand() {
