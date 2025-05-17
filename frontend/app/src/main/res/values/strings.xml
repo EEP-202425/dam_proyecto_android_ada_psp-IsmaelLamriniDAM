@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">ProyectoFinalAndroid</string>
+    <string name = "camiones">"Camiones:"</string>
+    <string name="loading">Loading</string>
+    <string name="sell">VENTA EXITOSA</string>
+    <string name="registerSuccess">REGISTRO EXITOSO</string>
+    <string name="backButton">Botón para ir atras</string>
+    <string name="update">USUARIO ACTUALIZADO CON ÉXITO</string>
+    <string name="register">Pantalla Registro</string>
+    <string name="login">Pantalla Login</string>
+    <string name="list">Camiones</string>
+    <string name="details">Detalless</string>
+    <string name="create">Venta</string>
+    <string name="delete">Compra</string>
+</resources>
