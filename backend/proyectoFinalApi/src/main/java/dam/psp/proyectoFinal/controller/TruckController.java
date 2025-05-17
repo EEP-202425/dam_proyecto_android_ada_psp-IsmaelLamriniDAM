@@ -4,6 +4,8 @@ import java.net.URI;
 import java.util.List;
 import java.util.Optional;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
@@ -18,6 +20,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.util.UriComponentsBuilder;
 
+import dam.psp.proyectoFinal.ProyectoFinalPspApplication;
 import dam.psp.proyectoFinal.repository.BrandRepository;
 import dam.psp.proyectoFinal.repository.ModelRepository;
 import dam.psp.proyectoFinal.repository.PersonRepository;
@@ -30,6 +33,8 @@ import dam.psp.proyectoFinal.tablas.Truck;
 @RestController
 @RequestMapping("/camiones")
 public class TruckController {
+	
+	private static final Logger logger = LoggerFactory.getLogger(ProyectoFinalPspApplication.class);
 	
 	private final TruckRepository truckRepository;
 	private final PersonRepository personRepository;
