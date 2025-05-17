@@ -56,10 +56,12 @@ public class TruckController {
 		
 		Optional<Truck> optTruck = truckRepository.findById(id);
 		if(!optTruck.isPresent()) {
+			logger.error("Delete: Camión no encontrado.");
 			return ResponseEntity.notFound().build();
 		} 
 			
 		truckRepository.delete(optTruck.get());
+		logger.info("Camión con id: " + optTruck.get().getId() + " ha sido eliminado.");
 		return ResponseEntity.noContent().build();
 	}
 	
@@ -72,14 +74,16 @@ public class TruckController {
 		
 		Optional<Person> optPerson = Optional.ofNullable(personRepository.findByName(newTruck.getOwner().getName().toLowerCase()));
 		if(!optPerson.isPresent()) {
+			logger.error("CreateTruck: usuario no encontrado.");
 			return ResponseEntity.notFound().build();
 		}
 		Person owner = optPerson.get();
 		
 		Truck createTruck = new Truck(null ,brand, model, newTruck.getPreci(), owner);
 		Truck truckSave = truckRepository.save(createTruck);
-		URI newURL = ucb.path("camiones/{id}").buildAndExpand(truckSave.getId()).toUri();
+		logger.info("Camión con id: " + truckSave.getId() + " ha sido guardado con éxito.");
 		
+		URI newURL = ucb.path("camiones/{id}").buildAndExpand(truckSave.getId()).toUri();
 		return ResponseEntity.created(newURL).body(truckSave);
 	}
 	
@@ -87,6 +91,7 @@ public class TruckController {
 	private ResponseEntity<List<Truck>> getAll(Pageable pageable) {
 		Page<Truck> truck = truckRepository.findAll 
 				(PageRequest.of(pageable.getPageNumber(), pageable.getPageSize(),pageable.getSortOr(Sort.by(Sort.Direction.DESC, "preci"))));
+		logger.info("Lista de camiones exitosa.");
 		return ResponseEntity.ok(truck.getContent());
 	}
 	
@@ -94,8 +99,10 @@ public class TruckController {
 	private ResponseEntity<Truck> findById(@PathVariable int id) {
 		Optional<Truck> myTruck = truckRepository.findById(id);
 		if (myTruck.isPresent()) {
+			logger.info("Camión con id: " + myTruck.get().getId() + " ha sido encontrado con éxito.");
 			return ResponseEntity.ok(myTruck.get());
 		} else {
+			logger.error("FindById: Camión no encontrado.");
 			return ResponseEntity.notFound().build();
 		}
 	}

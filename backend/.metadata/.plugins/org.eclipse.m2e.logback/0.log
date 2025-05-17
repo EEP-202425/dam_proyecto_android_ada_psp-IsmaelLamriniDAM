@@ -2305,3 +2305,80 @@ Caused by: org.codehaus.plexus.util.xml.pull.XmlPullParserException: expected ST
 2025-05-17 13:39:10,625 [Worker-34: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
 2025-05-17 13:39:10,630 [Worker-34: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
 2025-05-17 13:39:10,634 [Worker-34: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\ismae\dam_proyecto_android_ada_psp-IsmaelLamriniDAM\backend\proyectoFinalApi\src\test\resources
+2025-05-17 13:46:46,887 [Worker-4: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2025-05-17 13:47:20,835 [Worker-1: Building] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: dam.psp:proyectoFinal:0.0.1-SNAPSHOT @ C:\Users\ismae\dam_proyecto_android_ada_psp-IsmaelLamriniDAM\backend\proyectoFinalApi\pom.xml.
+2025-05-17 13:47:22,766 [Worker-1: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-05-17 13:47:22,855 [Worker-1: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-05-17 13:47:22,874 [Worker-1: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\ismae\dam_proyecto_android_ada_psp-IsmaelLamriniDAM\backend\proyectoFinalApi\src\test\resources
+2025-05-17 13:47:31,639 [Worker-19: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-05-17 13:47:31,648 [Worker-19: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-05-17 13:47:31,667 [Worker-19: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\ismae\dam_proyecto_android_ada_psp-IsmaelLamriniDAM\backend\proyectoFinalApi\src\test\resources
+2025-05-17 13:48:42,363 [Worker-6: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-05-17 13:48:42,371 [Worker-6: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-05-17 13:48:42,377 [Worker-6: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\ismae\dam_proyecto_android_ada_psp-IsmaelLamriniDAM\backend\proyectoFinalApi\src\test\resources
+2025-05-17 13:49:00,464 [Worker-7: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-05-17 13:49:00,471 [Worker-7: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-05-17 13:49:00,477 [Worker-7: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\ismae\dam_proyecto_android_ada_psp-IsmaelLamriniDAM\backend\proyectoFinalApi\src\test\resources
+2025-05-17 13:50:17,664 [Worker-17: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-05-17 13:50:17,670 [Worker-17: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-05-17 13:50:17,675 [Worker-17: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\ismae\dam_proyecto_android_ada_psp-IsmaelLamriniDAM\backend\proyectoFinalApi\src\test\resources
+2025-05-17 13:50:24,559 [Worker-3: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-05-17 13:50:24,565 [Worker-3: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-05-17 13:50:24,572 [Worker-3: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\ismae\dam_proyecto_android_ada_psp-IsmaelLamriniDAM\backend\proyectoFinalApi\src\test\resources
+2025-05-17 13:51:06,252 [Worker-7: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-05-17 13:51:06,258 [Worker-7: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-05-17 13:51:06,266 [Worker-7: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\ismae\dam_proyecto_android_ada_psp-IsmaelLamriniDAM\backend\proyectoFinalApi\src\test\resources
+2025-05-17 13:51:09,205 [Worker-16: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-05-17 13:51:09,213 [Worker-16: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-05-17 13:51:09,219 [Worker-16: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\ismae\dam_proyecto_android_ada_psp-IsmaelLamriniDAM\backend\proyectoFinalApi\src\test\resources
+2025-05-17 13:51:48,012 [Worker-3: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-05-17 13:51:48,018 [Worker-3: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-05-17 13:51:48,023 [Worker-3: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\ismae\dam_proyecto_android_ada_psp-IsmaelLamriniDAM\backend\proyectoFinalApi\src\test\resources
+2025-05-17 13:52:29,251 [Worker-12: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-05-17 13:52:29,257 [Worker-12: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-05-17 13:52:29,263 [Worker-12: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\ismae\dam_proyecto_android_ada_psp-IsmaelLamriniDAM\backend\proyectoFinalApi\src\test\resources
+2025-05-17 13:55:14,695 [Worker-16: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-05-17 13:55:14,702 [Worker-16: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-05-17 13:55:14,711 [Worker-16: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\ismae\dam_proyecto_android_ada_psp-IsmaelLamriniDAM\backend\proyectoFinalApi\src\test\resources
+2025-05-17 13:55:21,246 [Worker-15: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-05-17 13:55:21,253 [Worker-15: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-05-17 13:55:21,256 [Worker-15: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\ismae\dam_proyecto_android_ada_psp-IsmaelLamriniDAM\backend\proyectoFinalApi\src\test\resources
+2025-05-17 13:55:26,004 [Worker-7: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-05-17 13:55:26,010 [Worker-7: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-05-17 13:55:26,015 [Worker-7: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\ismae\dam_proyecto_android_ada_psp-IsmaelLamriniDAM\backend\proyectoFinalApi\src\test\resources
+2025-05-17 13:56:47,930 [Worker-3: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-05-17 13:56:47,938 [Worker-3: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-05-17 13:56:47,943 [Worker-3: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\ismae\dam_proyecto_android_ada_psp-IsmaelLamriniDAM\backend\proyectoFinalApi\src\test\resources
+2025-05-17 13:57:59,203 [Worker-15: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-05-17 13:57:59,211 [Worker-15: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-05-17 13:57:59,215 [Worker-15: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\ismae\dam_proyecto_android_ada_psp-IsmaelLamriniDAM\backend\proyectoFinalApi\src\test\resources
+2025-05-17 13:58:53,860 [Worker-15: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-05-17 13:58:53,866 [Worker-15: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-05-17 13:58:53,874 [Worker-15: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\ismae\dam_proyecto_android_ada_psp-IsmaelLamriniDAM\backend\proyectoFinalApi\src\test\resources
+2025-05-17 13:59:18,144 [Worker-22: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-05-17 13:59:18,151 [Worker-22: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-05-17 13:59:18,157 [Worker-22: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\ismae\dam_proyecto_android_ada_psp-IsmaelLamriniDAM\backend\proyectoFinalApi\src\test\resources
+2025-05-17 13:59:22,935 [Worker-23: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-05-17 13:59:22,942 [Worker-23: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-05-17 13:59:22,947 [Worker-23: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\ismae\dam_proyecto_android_ada_psp-IsmaelLamriniDAM\backend\proyectoFinalApi\src\test\resources
+2025-05-17 13:59:53,642 [Worker-15: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-05-17 13:59:53,648 [Worker-15: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-05-17 13:59:53,654 [Worker-15: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\ismae\dam_proyecto_android_ada_psp-IsmaelLamriniDAM\backend\proyectoFinalApi\src\test\resources
+2025-05-17 14:01:04,518 [Worker-20: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-05-17 14:01:04,525 [Worker-20: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-05-17 14:01:04,531 [Worker-20: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\ismae\dam_proyecto_android_ada_psp-IsmaelLamriniDAM\backend\proyectoFinalApi\src\test\resources
+2025-05-17 14:01:36,214 [Worker-7: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-05-17 14:01:36,221 [Worker-7: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-05-17 14:01:36,228 [Worker-7: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\ismae\dam_proyecto_android_ada_psp-IsmaelLamriniDAM\backend\proyectoFinalApi\src\test\resources
+2025-05-17 14:01:42,466 [Worker-4: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-05-17 14:01:42,473 [Worker-4: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-05-17 14:01:42,478 [Worker-4: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\ismae\dam_proyecto_android_ada_psp-IsmaelLamriniDAM\backend\proyectoFinalApi\src\test\resources
+2025-05-17 14:02:08,148 [Worker-21: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-05-17 14:02:08,158 [Worker-21: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-05-17 14:02:08,165 [Worker-21: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\ismae\dam_proyecto_android_ada_psp-IsmaelLamriniDAM\backend\proyectoFinalApi\src\test\resources
+2025-05-17 14:02:48,422 [Worker-3: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-05-17 14:02:48,428 [Worker-3: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-05-17 14:02:48,432 [Worker-3: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\ismae\dam_proyecto_android_ada_psp-IsmaelLamriniDAM\backend\proyectoFinalApi\src\test\resources
+2025-05-17 14:05:16,448 [Worker-20: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-05-17 14:05:16,454 [Worker-20: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-05-17 14:05:16,458 [Worker-20: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\ismae\dam_proyecto_android_ada_psp-IsmaelLamriniDAM\backend\proyectoFinalApi\src\test\resources
