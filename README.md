@@ -89,3 +89,5 @@ FA-02 (Opcional). NO IMPLEMENTADO
 FA-03 (Opcional). NO IMPLEMENTADO
 
 ENLACE DEL VIDEO
+
+https://eepmad-my.sharepoint.com/:v:/g/personal/ismael-lamrini1_eep-igroup_com/EY7fEILHQjVIuAThjB1aBIIBf0RIwAPijDG3CX9__pqq9g?e=JqKlQa&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D
